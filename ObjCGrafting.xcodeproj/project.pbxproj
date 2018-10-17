@@ -1,0 +1,1755 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9CD2D9742177586F00FFD1A9 /* ObjCGrafting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD2D96A2177586F00FFD1A9 /* ObjCGrafting.framework */; };
+		9CD2D9902177587C00FFD1A9 /* ObjCGrafting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD2D9872177587C00FFD1A9 /* ObjCGrafting.framework */; };
+		9CD2D9B92177589000FFD1A9 /* ObjCGrafting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD2D9B02177589000FFD1A9 /* ObjCGrafting.framework */; };
+		9CD2D9D521775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9CF21775A4200FFD1A9 /* ObjCGraft+Internal.h */; };
+		9CD2D9D621775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9CF21775A4200FFD1A9 /* ObjCGraft+Internal.h */; };
+		9CD2D9D721775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9CF21775A4200FFD1A9 /* ObjCGraft+Internal.h */; };
+		9CD2D9D821775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9CF21775A4200FFD1A9 /* ObjCGraft+Internal.h */; };
+		9CD2D9D921775A4300FFD1A9 /* ObjCGraft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D021775A4200FFD1A9 /* ObjCGraft.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CD2D9DA21775A4300FFD1A9 /* ObjCGraft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D021775A4200FFD1A9 /* ObjCGraft.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CD2D9DB21775A4300FFD1A9 /* ObjCGraft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D021775A4200FFD1A9 /* ObjCGraft.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CD2D9DC21775A4300FFD1A9 /* ObjCGraft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D021775A4200FFD1A9 /* ObjCGraft.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CD2D9DD21775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D121775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h */; };
+		9CD2D9DE21775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D121775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h */; };
+		9CD2D9DF21775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D121775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h */; };
+		9CD2D9E021775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D121775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h */; };
+		9CD2D9E121775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D221775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9CD2D9E221775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D221775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m */; };
+		9CD2D9E321775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D221775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m */; };
+		9CD2D9E421775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D221775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m */; };
+		9CD2D9E921775A4300FFD1A9 /* ObjCGraft.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D421775A4200FFD1A9 /* ObjCGraft.mm */; };
+		9CD2D9EA21775A4300FFD1A9 /* ObjCGraft.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D421775A4200FFD1A9 /* ObjCGraft.mm */; };
+		9CD2D9EB21775A4300FFD1A9 /* ObjCGraft.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D421775A4200FFD1A9 /* ObjCGraft.mm */; };
+		9CD2D9EC21775A4300FFD1A9 /* ObjCGraft.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D421775A4200FFD1A9 /* ObjCGraft.mm */; };
+		9CD2DCE42177CE8800FFD1A9 /* ObjCGraftProtocolImplementationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE12177CE8700FFD1A9 /* ObjCGraftProtocolImplementationTest.swift */; };
+		9CD2DCE52177CE8800FFD1A9 /* ObjCGraftProtocolImplementationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE12177CE8700FFD1A9 /* ObjCGraftProtocolImplementationTest.swift */; };
+		9CD2DCE62177CE8800FFD1A9 /* ObjCGraftProtocolImplementationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE12177CE8700FFD1A9 /* ObjCGraftProtocolImplementationTest.swift */; };
+		9CD2DCE72177CE8800FFD1A9 /* GraftableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE22177CE8700FFD1A9 /* GraftableObject.m */; };
+		9CD2DCE82177CE8800FFD1A9 /* GraftableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE22177CE8700FFD1A9 /* GraftableObject.m */; };
+		9CD2DCE92177CE8800FFD1A9 /* GraftableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE22177CE8700FFD1A9 /* GraftableObject.m */; };
+		9CD2DCEC2177CF9600FFD1A9 /* ObjCGrafting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2DCEB2177CF9100FFD1A9 /* ObjCGrafting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CD2DCED2177CF9700FFD1A9 /* ObjCGrafting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2DCEB2177CF9100FFD1A9 /* ObjCGrafting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CD2DCEE2177CF9700FFD1A9 /* ObjCGrafting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2DCEB2177CF9100FFD1A9 /* ObjCGrafting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CD2DCEF2177CF9800FFD1A9 /* ObjCGrafting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2DCEB2177CF9100FFD1A9 /* ObjCGrafting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CD2DCF02177CFC500FFD1A9 /* ObjCGraftImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D321775A4200FFD1A9 /* ObjCGraftImplementation.swift */; };
+		9CD2DCF12177CFC600FFD1A9 /* ObjCGraftImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D321775A4200FFD1A9 /* ObjCGraftImplementation.swift */; };
+		9CD2DCF22177CFC600FFD1A9 /* ObjCGraftImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D321775A4200FFD1A9 /* ObjCGraftImplementation.swift */; };
+		9CD2DCF32177CFC700FFD1A9 /* ObjCGraftImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D321775A4200FFD1A9 /* ObjCGraftImplementation.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9CD2D9752177586F00FFD1A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CD2D95F2177584600FFD1A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9CD2D9692177586F00FFD1A9;
+			remoteInfo = "ObjCGrafting-macOS";
+		};
+		9CD2D9912177587C00FFD1A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CD2D95F2177584600FFD1A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9CD2D9862177587C00FFD1A9;
+			remoteInfo = "ObjCGrafting-iOS";
+		};
+		9CD2D9BA2177589000FFD1A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CD2D95F2177584600FFD1A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9CD2D9AF2177589000FFD1A9;
+			remoteInfo = "ObjCGrafting-tvOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9CD2D96A2177586F00FFD1A9 /* ObjCGrafting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCGrafting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD2D9732177586F00FFD1A9 /* ObjCGrafting-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObjCGrafting-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD2D9872177587C00FFD1A9 /* ObjCGrafting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCGrafting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD2D98F2177587C00FFD1A9 /* ObjCGrafting-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObjCGrafting-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD2D9A32177588500FFD1A9 /* ObjCGrafting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCGrafting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD2D9B02177589000FFD1A9 /* ObjCGrafting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCGrafting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD2D9B82177589000FFD1A9 /* ObjCGrafting-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObjCGrafting-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD2D9C8217758DC00FFD1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CD2D9CB217758DC00FFD1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CD2D9CF21775A4200FFD1A9 /* ObjCGraft+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjCGraft+Internal.h"; sourceTree = "<group>"; };
+		9CD2D9D021775A4200FFD1A9 /* ObjCGraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCGraft.h; sourceTree = "<group>"; };
+		9CD2D9D121775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCGraftedObjectBackwardInstanceImpl.h; sourceTree = "<group>"; };
+		9CD2D9D221775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCGraftedObjectBackwardInstanceImpl.m; sourceTree = "<group>"; };
+		9CD2D9D321775A4200FFD1A9 /* ObjCGraftImplementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjCGraftImplementation.swift; sourceTree = "<group>"; };
+		9CD2D9D421775A4200FFD1A9 /* ObjCGraft.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCGraft.mm; sourceTree = "<group>"; };
+		9CD2DCD92177AE5300FFD1A9 /* CocoaWax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CocoaWax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD2DCDB2177AE5800FFD1A9 /* CocoaWax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CocoaWax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD2DCDD2177AE5C00FFD1A9 /* CocoaWax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CocoaWax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD2DCDF2177AE6200FFD1A9 /* CocoaWax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CocoaWax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD2DCE12177CE8700FFD1A9 /* ObjCGraftProtocolImplementationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjCGraftProtocolImplementationTest.swift; sourceTree = "<group>"; };
+		9CD2DCE22177CE8700FFD1A9 /* GraftableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraftableObject.m; sourceTree = "<group>"; };
+		9CD2DCE32177CE8800FFD1A9 /* GraftableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraftableObject.h; sourceTree = "<group>"; };
+		9CD2DCEA2177CF2A00FFD1A9 /* ObjCGraftingTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjCGraftingTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		9CD2DCEB2177CF9100FFD1A9 /* ObjCGrafting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCGrafting.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9CD2D9672177586F00FFD1A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9702177586F00FFD1A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2D9742177586F00FFD1A9 /* ObjCGrafting.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9842177587C00FFD1A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D98C2177587C00FFD1A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2D9902177587C00FFD1A9 /* ObjCGrafting.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9A02177588500FFD1A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9AD2177589000FFD1A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9B52177589000FFD1A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2D9B92177589000FFD1A9 /* ObjCGrafting.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9CD2D95E2177584600FFD1A9 = {
+			isa = PBXGroup;
+			children = (
+				9CD2D9C7217758DC00FFD1A9 /* ObjCGrafting */,
+				9CD2D9CA217758DC00FFD1A9 /* ObjCGraftingTests */,
+				9CD2D96B2177586F00FFD1A9 /* Products */,
+				9CD2DCD82177AE5300FFD1A9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9CD2D96B2177586F00FFD1A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2D96A2177586F00FFD1A9 /* ObjCGrafting.framework */,
+				9CD2D9732177586F00FFD1A9 /* ObjCGrafting-macOSTests.xctest */,
+				9CD2D9872177587C00FFD1A9 /* ObjCGrafting.framework */,
+				9CD2D98F2177587C00FFD1A9 /* ObjCGrafting-iOSTests.xctest */,
+				9CD2D9A32177588500FFD1A9 /* ObjCGrafting.framework */,
+				9CD2D9B02177589000FFD1A9 /* ObjCGrafting.framework */,
+				9CD2D9B82177589000FFD1A9 /* ObjCGrafting-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9CD2D9C7217758DC00FFD1A9 /* ObjCGrafting */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2D9D021775A4200FFD1A9 /* ObjCGraft.h */,
+				9CD2D9D421775A4200FFD1A9 /* ObjCGraft.mm */,
+				9CD2D9CF21775A4200FFD1A9 /* ObjCGraft+Internal.h */,
+				9CD2D9D121775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h */,
+				9CD2D9D221775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m */,
+				9CD2D9D321775A4200FFD1A9 /* ObjCGraftImplementation.swift */,
+				9CD2D9CE217758F400FFD1A9 /* Supporting Files */,
+			);
+			path = ObjCGrafting;
+			sourceTree = "<group>";
+		};
+		9CD2D9CA217758DC00FFD1A9 /* ObjCGraftingTests */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2DCE12177CE8700FFD1A9 /* ObjCGraftProtocolImplementationTest.swift */,
+				9CD2DCE32177CE8800FFD1A9 /* GraftableObject.h */,
+				9CD2DCE22177CE8700FFD1A9 /* GraftableObject.m */,
+				9CD2D9CD217758EB00FFD1A9 /* Supporting Files */,
+			);
+			path = ObjCGraftingTests;
+			sourceTree = "<group>";
+		};
+		9CD2D9CD217758EB00FFD1A9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2DCEA2177CF2A00FFD1A9 /* ObjCGraftingTests-Bridging-Header.h */,
+				9CD2D9CB217758DC00FFD1A9 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9CD2D9CE217758F400FFD1A9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2DCEB2177CF9100FFD1A9 /* ObjCGrafting.h */,
+				9CD2D9C8217758DC00FFD1A9 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9CD2DCD82177AE5300FFD1A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CD2DCDF2177AE6200FFD1A9 /* CocoaWax.framework */,
+				9CD2DCDD2177AE5C00FFD1A9 /* CocoaWax.framework */,
+				9CD2DCDB2177AE5800FFD1A9 /* CocoaWax.framework */,
+				9CD2DCD92177AE5300FFD1A9 /* CocoaWax.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9CD2D9652177586F00FFD1A9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2DCEF2177CF9800FFD1A9 /* ObjCGrafting.h in Headers */,
+				9CD2D9D521775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */,
+				9CD2D9D921775A4300FFD1A9 /* ObjCGraft.h in Headers */,
+				9CD2D9DD21775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9822177587C00FFD1A9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2DCEE2177CF9700FFD1A9 /* ObjCGrafting.h in Headers */,
+				9CD2D9D621775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */,
+				9CD2D9DA21775A4300FFD1A9 /* ObjCGraft.h in Headers */,
+				9CD2D9DE21775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D99E2177588500FFD1A9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2DCED2177CF9700FFD1A9 /* ObjCGrafting.h in Headers */,
+				9CD2D9D721775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */,
+				9CD2D9DB21775A4300FFD1A9 /* ObjCGraft.h in Headers */,
+				9CD2D9DF21775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9AB2177589000FFD1A9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2DCEC2177CF9600FFD1A9 /* ObjCGrafting.h in Headers */,
+				9CD2D9D821775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */,
+				9CD2D9DC21775A4300FFD1A9 /* ObjCGraft.h in Headers */,
+				9CD2D9E021775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9CD2D9692177586F00FFD1A9 /* ObjCGrafting-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CD2D97C2177586F00FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-macOS" */;
+			buildPhases = (
+				9CD2D9652177586F00FFD1A9 /* Headers */,
+				9CD2D9662177586F00FFD1A9 /* Sources */,
+				9CD2D9672177586F00FFD1A9 /* Frameworks */,
+				9CD2D9682177586F00FFD1A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ObjCGrafting-macOS";
+			productName = "ObjCGrafting-macOS";
+			productReference = 9CD2D96A2177586F00FFD1A9 /* ObjCGrafting.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9CD2D9722177586F00FFD1A9 /* ObjCGrafting-macOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CD2D97F2177586F00FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-macOSTests" */;
+			buildPhases = (
+				9CD2D96F2177586F00FFD1A9 /* Sources */,
+				9CD2D9702177586F00FFD1A9 /* Frameworks */,
+				9CD2D9712177586F00FFD1A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9CD2D9762177586F00FFD1A9 /* PBXTargetDependency */,
+			);
+			name = "ObjCGrafting-macOSTests";
+			productName = "ObjCGrafting-macOSTests";
+			productReference = 9CD2D9732177586F00FFD1A9 /* ObjCGrafting-macOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9CD2D9862177587C00FFD1A9 /* ObjCGrafting-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CD2D9982177587C00FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-iOS" */;
+			buildPhases = (
+				9CD2D9822177587C00FFD1A9 /* Headers */,
+				9CD2D9832177587C00FFD1A9 /* Sources */,
+				9CD2D9842177587C00FFD1A9 /* Frameworks */,
+				9CD2D9852177587C00FFD1A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ObjCGrafting-iOS";
+			productName = "ObjCGrafting-iOS";
+			productReference = 9CD2D9872177587C00FFD1A9 /* ObjCGrafting.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9CD2D98E2177587C00FFD1A9 /* ObjCGrafting-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CD2D99B2177587C00FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-iOSTests" */;
+			buildPhases = (
+				9CD2D98B2177587C00FFD1A9 /* Sources */,
+				9CD2D98C2177587C00FFD1A9 /* Frameworks */,
+				9CD2D98D2177587C00FFD1A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9CD2D9922177587C00FFD1A9 /* PBXTargetDependency */,
+			);
+			name = "ObjCGrafting-iOSTests";
+			productName = "ObjCGrafting-iOSTests";
+			productReference = 9CD2D98F2177587C00FFD1A9 /* ObjCGrafting-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9CD2D9A22177588500FFD1A9 /* ObjCGrafting-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CD2D9A82177588500FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-watchOS" */;
+			buildPhases = (
+				9CD2D99E2177588500FFD1A9 /* Headers */,
+				9CD2D99F2177588500FFD1A9 /* Sources */,
+				9CD2D9A02177588500FFD1A9 /* Frameworks */,
+				9CD2D9A12177588500FFD1A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ObjCGrafting-watchOS";
+			productName = "ObjCGrafting-watchOS";
+			productReference = 9CD2D9A32177588500FFD1A9 /* ObjCGrafting.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9CD2D9AF2177589000FFD1A9 /* ObjCGrafting-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CD2D9C12177589000FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-tvOS" */;
+			buildPhases = (
+				9CD2D9AB2177589000FFD1A9 /* Headers */,
+				9CD2D9AC2177589000FFD1A9 /* Sources */,
+				9CD2D9AD2177589000FFD1A9 /* Frameworks */,
+				9CD2D9AE2177589000FFD1A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ObjCGrafting-tvOS";
+			productName = "ObjCGrafting-tvOS";
+			productReference = 9CD2D9B02177589000FFD1A9 /* ObjCGrafting.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9CD2D9B72177589000FFD1A9 /* ObjCGrafting-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CD2D9C42177589000FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-tvOSTests" */;
+			buildPhases = (
+				9CD2D9B42177589000FFD1A9 /* Sources */,
+				9CD2D9B52177589000FFD1A9 /* Frameworks */,
+				9CD2D9B62177589000FFD1A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9CD2D9BB2177589000FFD1A9 /* PBXTargetDependency */,
+			);
+			name = "ObjCGrafting-tvOSTests";
+			productName = "ObjCGrafting-tvOSTests";
+			productReference = 9CD2D9B82177589000FFD1A9 /* ObjCGrafting-tvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9CD2D95F2177584600FFD1A9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				TargetAttributes = {
+					9CD2D9692177586F00FFD1A9 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+					9CD2D9722177586F00FFD1A9 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+					9CD2D9862177587C00FFD1A9 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+					9CD2D98E2177587C00FFD1A9 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+					9CD2D9A22177588500FFD1A9 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+					9CD2D9AF2177589000FFD1A9 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+					9CD2D9B72177589000FFD1A9 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+				};
+			};
+			buildConfigurationList = 9CD2D9622177584600FFD1A9 /* Build configuration list for PBXProject "ObjCGrafting" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9CD2D95E2177584600FFD1A9;
+			productRefGroup = 9CD2D96B2177586F00FFD1A9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9CD2D9692177586F00FFD1A9 /* ObjCGrafting-macOS */,
+				9CD2D9722177586F00FFD1A9 /* ObjCGrafting-macOSTests */,
+				9CD2D9862177587C00FFD1A9 /* ObjCGrafting-iOS */,
+				9CD2D98E2177587C00FFD1A9 /* ObjCGrafting-iOSTests */,
+				9CD2D9A22177588500FFD1A9 /* ObjCGrafting-watchOS */,
+				9CD2D9AF2177589000FFD1A9 /* ObjCGrafting-tvOS */,
+				9CD2D9B72177589000FFD1A9 /* ObjCGrafting-tvOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9CD2D9682177586F00FFD1A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9712177586F00FFD1A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9852177587C00FFD1A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D98D2177587C00FFD1A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9A12177588500FFD1A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9AE2177589000FFD1A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9B62177589000FFD1A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9CD2D9662177586F00FFD1A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2DCF02177CFC500FFD1A9 /* ObjCGraftImplementation.swift in Sources */,
+				9CD2D9E121775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */,
+				9CD2D9E921775A4300FFD1A9 /* ObjCGraft.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D96F2177586F00FFD1A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2DCE72177CE8800FFD1A9 /* GraftableObject.m in Sources */,
+				9CD2DCE42177CE8800FFD1A9 /* ObjCGraftProtocolImplementationTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9832177587C00FFD1A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2DCF12177CFC600FFD1A9 /* ObjCGraftImplementation.swift in Sources */,
+				9CD2D9E221775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */,
+				9CD2D9EA21775A4300FFD1A9 /* ObjCGraft.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D98B2177587C00FFD1A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2DCE82177CE8800FFD1A9 /* GraftableObject.m in Sources */,
+				9CD2DCE52177CE8800FFD1A9 /* ObjCGraftProtocolImplementationTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D99F2177588500FFD1A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2DCF22177CFC600FFD1A9 /* ObjCGraftImplementation.swift in Sources */,
+				9CD2D9E321775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */,
+				9CD2D9EB21775A4300FFD1A9 /* ObjCGraft.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9AC2177589000FFD1A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2DCF32177CFC700FFD1A9 /* ObjCGraftImplementation.swift in Sources */,
+				9CD2D9E421775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */,
+				9CD2D9EC21775A4300FFD1A9 /* ObjCGraft.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CD2D9B42177589000FFD1A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD2DCE92177CE8800FFD1A9 /* GraftableObject.m in Sources */,
+				9CD2DCE62177CE8800FFD1A9 /* ObjCGraftProtocolImplementationTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9CD2D9762177586F00FFD1A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9CD2D9692177586F00FFD1A9 /* ObjCGrafting-macOS */;
+			targetProxy = 9CD2D9752177586F00FFD1A9 /* PBXContainerItemProxy */;
+		};
+		9CD2D9922177587C00FFD1A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9CD2D9862177587C00FFD1A9 /* ObjCGrafting-iOS */;
+			targetProxy = 9CD2D9912177587C00FFD1A9 /* PBXContainerItemProxy */;
+		};
+		9CD2D9BB2177589000FFD1A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9CD2D9AF2177589000FFD1A9 /* ObjCGrafting-tvOS */;
+			targetProxy = 9CD2D9BA2177589000FFD1A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9CD2D9632177584600FFD1A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		9CD2D9642177584600FFD1A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		9CD2D97D2177586F00FFD1A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGrafting/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-macOS";
+				PRODUCT_NAME = ObjCGrafting;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9CD2D97E2177586F00FFD1A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGrafting/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-macOS";
+				PRODUCT_NAME = ObjCGrafting;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9CD2D9802177586F00FFD1A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGraftingTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "ObjCGraftingTests/Supporting Files/ObjCGraftingTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		9CD2D9812177586F00FFD1A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGraftingTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "ObjCGraftingTests/Supporting Files/ObjCGraftingTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		9CD2D9992177587C00FFD1A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGrafting/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-iOS";
+				PRODUCT_NAME = ObjCGrafting;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9CD2D99A2177587C00FFD1A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGrafting/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-iOS";
+				PRODUCT_NAME = ObjCGrafting;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9CD2D99C2177587C00FFD1A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGraftingTests/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "ObjCGraftingTests/Supporting Files/ObjCGraftingTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9CD2D99D2177587C00FFD1A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGraftingTests/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "ObjCGraftingTests/Supporting Files/ObjCGraftingTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9CD2D9A92177588500FFD1A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGrafting/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-watchOS";
+				PRODUCT_NAME = ObjCGrafting;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Debug;
+		};
+		9CD2D9AA2177588500FFD1A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGrafting/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-watchOS";
+				PRODUCT_NAME = ObjCGrafting;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+			};
+			name = Release;
+		};
+		9CD2D9C22177589000FFD1A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGrafting/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-tvOS";
+				PRODUCT_NAME = ObjCGrafting;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9CD2D9C32177589000FFD1A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGrafting/Supporting Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-tvOS";
+				PRODUCT_NAME = ObjCGrafting;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9CD2D9C52177589000FFD1A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGraftingTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "ObjCGraftingTests/Supporting Files/ObjCGraftingTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		9CD2D9C62177589000FFD1A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "ObjCGraftingTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "ObjCGraftingTests/Supporting Files/ObjCGraftingTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9CD2D9622177584600FFD1A9 /* Build configuration list for PBXProject "ObjCGrafting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD2D9632177584600FFD1A9 /* Debug */,
+				9CD2D9642177584600FFD1A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CD2D97C2177586F00FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD2D97D2177586F00FFD1A9 /* Debug */,
+				9CD2D97E2177586F00FFD1A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CD2D97F2177586F00FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-macOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD2D9802177586F00FFD1A9 /* Debug */,
+				9CD2D9812177586F00FFD1A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CD2D9982177587C00FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD2D9992177587C00FFD1A9 /* Debug */,
+				9CD2D99A2177587C00FFD1A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CD2D99B2177587C00FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD2D99C2177587C00FFD1A9 /* Debug */,
+				9CD2D99D2177587C00FFD1A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CD2D9A82177588500FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD2D9A92177588500FFD1A9 /* Debug */,
+				9CD2D9AA2177588500FFD1A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CD2D9C12177589000FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD2D9C22177589000FFD1A9 /* Debug */,
+				9CD2D9C32177589000FFD1A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CD2D9C42177589000FFD1A9 /* Build configuration list for PBXNativeTarget "ObjCGrafting-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD2D9C52177589000FFD1A9 /* Debug */,
+				9CD2D9C62177589000FFD1A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9CD2D95F2177584600FFD1A9 /* Project object */;
+}
