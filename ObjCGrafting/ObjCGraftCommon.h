@@ -17,7 +17,6 @@
 namespace objcgrafting {
 #pragma mark - Typedefs
     typedef std::map<Protocol * __unsafe_unretained , __unsafe_unretained Class> _ObjCGraftRecordMap;
-    typedef std::list<Protocol * __unsafe_unretained> _ObjCProtocolList;
     
 #pragma mark - Utility Functors
     struct _ObjCProtocolHasher {

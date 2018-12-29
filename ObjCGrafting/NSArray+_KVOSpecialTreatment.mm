@@ -7,7 +7,7 @@
 
 #import "NSArray+_KVOSpecialTreatment.h"
 
-#import "ClassUtilities.h"
+#import "_ObjCClass.h"
 #import "_ObjCGraftCenter.h"
 
 static NSArrayAddObserverToObjectsAtIndicesForKeyPathOptionsContext _NSArrayAddObserverToObjectsAtIndicesForKeyPathOptionsContext;
@@ -21,11 +21,11 @@ NSArrayRemoveObserverFromObjectsAtIndicesForKeyPathContext * _kNSArrayRemoveObse
 @implementation NSArray(_KVOSpecialTreatment)
 + (void)load
 {
-    _kNSArrayAddObserverToObjectsAtIndicesForKeyPathOptionsContext = objcgrafting::Cls::replaceInstanceMethod(self, @selector(addObserver:toObjectsAtIndexes:forKeyPath:options:context:), &_NSArrayAddObserverToObjectsAtIndicesForKeyPathOptionsContext);
+    _kNSArrayAddObserverToObjectsAtIndicesForKeyPathOptionsContext = objcgrafting::_ObjCClass::replaceInstanceMethod(self, @selector(addObserver:toObjectsAtIndexes:forKeyPath:options:context:), &_NSArrayAddObserverToObjectsAtIndicesForKeyPathOptionsContext);
     
-    _kNSArrayRemoveObserverFromObjectsAtIndicesForKeyPath = objcgrafting::Cls::replaceInstanceMethod(self, @selector(removeObserver:fromObjectsAtIndexes:forKeyPath:), &_NSArrayRemoveObserverFromObjectsAtIndicesForKeyPath);
+    _kNSArrayRemoveObserverFromObjectsAtIndicesForKeyPath = objcgrafting::_ObjCClass::replaceInstanceMethod(self, @selector(removeObserver:fromObjectsAtIndexes:forKeyPath:), &_NSArrayRemoveObserverFromObjectsAtIndicesForKeyPath);
     
-    _kNSArrayRemoveObserverFromObjectsAtIndicesForKeyPathContext = objcgrafting::Cls::replaceInstanceMethod(self, @selector(removeObserver:fromObjectsAtIndexes:forKeyPath:context:), &_NSArrayRemoveObserverFromObjectsAtIndicesForKeyPathContext);
+    _kNSArrayRemoveObserverFromObjectsAtIndicesForKeyPathContext = objcgrafting::_ObjCClass::replaceInstanceMethod(self, @selector(removeObserver:fromObjectsAtIndexes:forKeyPath:context:), &_NSArrayRemoveObserverFromObjectsAtIndicesForKeyPathContext);
 }
 @end
 

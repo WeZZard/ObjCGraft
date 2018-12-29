@@ -26,13 +26,10 @@ namespace objcgrafting {
         /// The composited class with grafted implementations.
         __unsafe_unretained Class composited_class;
         
-        /// The priority of grafted protocols.
-        std::unique_ptr<_ObjCProtocolList> grafted_protocol_list;
-        
         /// The relationship of protocols and source-classes.
         std::unique_ptr<_ObjCGraftRecordMap> graft_record_map;
         
-        _ObjCGraftInfo(__unsafe_unretained Class semantic_class, __unsafe_unretained Class composited_class, _ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap& graft_record_map);
+        _ObjCGraftInfo(__unsafe_unretained Class semantic_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map);
         
         /// Returns `true` when the `_ObjCGraftInfo` itself was mutated due to this registration.
         bool push(Protocol * __unsafe_unretained *  protocols, __unsafe_unretained Class * source_classes, unsigned int count);

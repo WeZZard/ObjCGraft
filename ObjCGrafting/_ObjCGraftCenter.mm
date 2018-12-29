@@ -8,7 +8,7 @@
 
 #import "_ObjCGraftCenter.h"
 
-#import "ClassUtilities.h"
+#import "_ObjCClass.h"
 #import "_ObjCGrafted.h"
 #import "_ObjCKeyValueObservationRecord.h"
 #import "_ObjCKeyValueObservationRecordList.h"
@@ -30,7 +30,7 @@ namespace objcgrafting {
             auto& graft_info = objectGetGraftInfo(object);
             
             if (graft_info.push(protocols, source_classes, count)) {
-                _setupGraftingOnObject(object, * graft_info.grafted_protocol_list, * graft_info.graft_record_map);
+                _setupGraftingOnObject(object, * graft_info.graft_record_map);
             }
         } else {
             auto graft_record_map = std::make_unique<_ObjCGraftRecordMap>();
@@ -41,7 +41,7 @@ namespace objcgrafting {
                 graft_record_map -> insert({protocol, source_class});
                 grafted_protocol_list -> push_front(protocol);
             }
-            _setupGraftingOnObject(object, * grafted_protocol_list, * graft_record_map);
+            _setupGraftingOnObject(object, * graft_record_map);
         }
         
         return object;
@@ -53,7 +53,7 @@ namespace objcgrafting {
             auto& graft_info = objectGetGraftInfo(object);
             
             if (graft_info.pop(protocols, count)) {
-                _setupGraftingOnObject(object, * graft_info.grafted_protocol_list, * graft_info.graft_record_map);
+                _setupGraftingOnObject(object, * graft_info.graft_record_map);
             }
         }
         
@@ -66,52 +66,48 @@ namespace objcgrafting {
             auto& graft_info = objectGetGraftInfo(object);
             
             assert(!graft_info.graft_record_map -> empty());
-            assert(!graft_info.grafted_protocol_list -> empty());
             
             graft_info.graft_record_map -> clear();
-            graft_info.grafted_protocol_list -> clear();
             
-            _setupGraftingOnObject(object, * graft_info.grafted_protocol_list, * graft_info.graft_record_map);
+            _setupGraftingOnObject(object, * graft_info.graft_record_map);
         }
         
         return object;
     }
     
-    void _ObjCGraftCenter::_setupGraftingOnObject(id object, _ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap& graft_record_map) {
+    void _ObjCGraftCenter::_setupGraftingOnObject(id object, _ObjCGraftRecordMap& graft_record_map) {
         
         auto semantic_class = [object class];
         
         auto topmost_class = object_getClass(object);
         
-        auto composited_class = _resolveCompositedClass(object, grafted_protocol_list, graft_record_map);
+        auto composited_class = _resolveCompositedClass(object, graft_record_map);
         
-        _setObjectClassHierarchy(object, semantic_class, topmost_class, composited_class, grafted_protocol_list, graft_record_map);
+        _setObjectClassHierarchy(object, semantic_class, topmost_class, composited_class, graft_record_map);
         
-        _setObjectGraftInfo(object, semantic_class, composited_class, grafted_protocol_list, graft_record_map);
+        _setObjectGraftInfo(object, semantic_class, composited_class, graft_record_map);
     }
     
-    void _ObjCGraftCenter::_setObjectClassHierarchy(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap& graft_record_map) {
+    void _ObjCGraftCenter::_setObjectClassHierarchy(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
         
         auto is_topmost_class_graftable = topmost_class == semantic_class || class_conformsToProtocol(topmost_class, @protocol(_ObjCGrafted));
         
         if (is_topmost_class_graftable) {
-            _setObjectClassHierarchyWhenTopmostClassIsGraftable(object, semantic_class, topmost_class, composited_class, grafted_protocol_list, graft_record_map);
+            _setObjectClassHierarchyWhenTopmostClassIsGraftable(object, semantic_class, topmost_class, composited_class, graft_record_map);
         } else {
-            _setObjectClassHierarchyWhenTopmostClassIsNotGraftable(object, semantic_class, topmost_class, composited_class, grafted_protocol_list, graft_record_map);
+            _setObjectClassHierarchyWhenTopmostClassIsNotGraftable(object, semantic_class, topmost_class, composited_class, graft_record_map);
         }
     }
     
-    void _ObjCGraftCenter::_setObjectClassHierarchyWhenTopmostClassIsGraftable(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap& graft_record_map) {
-        if (grafted_protocol_list.empty()) {
-            assert(graft_record_map.empty());
+    void _ObjCGraftCenter::_setObjectClassHierarchyWhenTopmostClassIsGraftable(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
+        if (graft_record_map.empty()) {
             object_setClass(object, semantic_class);
         } else {
-            assert(composited_class != nullptr);
             object_setClass(object, composited_class);
         }
     }
     
-    void _ObjCGraftCenter::_setObjectClassHierarchyWhenTopmostClassIsNotGraftable(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap& graft_record_map) {
+    void _ObjCGraftCenter::_setObjectClassHierarchyWhenTopmostClassIsNotGraftable(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
         
         auto topmost_class_name_raw = class_getName(topmost_class);
         
@@ -120,13 +116,13 @@ namespace objcgrafting {
         auto kvo_notifying_class_prefix = [NSString stringWithFormat:@"NSKVONotifying_"];
         
         if ([topmost_class_name hasPrefix:kvo_notifying_class_prefix]) {
-            _setObjectClassHierarchyWithConsiderationOfKeyValueObservation(object, semantic_class, topmost_class, composited_class, grafted_protocol_list, graft_record_map);
+            _setObjectClassHierarchyWithConsiderationOfKeyValueObservation(object, semantic_class, topmost_class, composited_class, graft_record_map);
         } else {
-            _setObjectClassHierarchyWithException(object, semantic_class, topmost_class, composited_class, grafted_protocol_list, graft_record_map);
+            _setObjectClassHierarchyWithException(object, semantic_class, topmost_class, composited_class, graft_record_map);
         }
     }
     
-    void _ObjCGraftCenter::_setObjectClassHierarchyWithConsiderationOfKeyValueObservation(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap& graft_record_map) {
+    void _ObjCGraftCenter::_setObjectClassHierarchyWithConsiderationOfKeyValueObservation(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
         
         auto kvo_notifying_class = topmost_class;
         
@@ -135,7 +131,7 @@ namespace objcgrafting {
             auto old_composited_class = objectGetGraftInfo(object).composited_class;
             auto kvo_notifying_class_class_impl = _compositedClassGetBackwardInstanceImpl(old_composited_class, _ObjCCompositedClassBackwardInstanceImplKindKVOClass);
             if (kvo_notifying_class_class_impl != nullptr) {
-                Cls::replaceInstanceMethod(kvo_notifying_class, @selector(class), kvo_notifying_class_class_impl);
+                _ObjCClass::replaceInstanceMethod(kvo_notifying_class, @selector(class), kvo_notifying_class_class_impl);
             }
         }
         
@@ -153,11 +149,9 @@ namespace objcgrafting {
         assert(object_getClass(object) != kvo_notifying_class);
         
         if (composited_class != nullptr) {
-            assert(!grafted_protocol_list.empty());
             assert(!graft_record_map.empty());
             object_setClass(object, composited_class);
         } else {
-            assert(grafted_protocol_list.empty());
             assert(graft_record_map.empty());
             object_setClass(object, semantic_class);
         }
@@ -177,16 +171,16 @@ namespace objcgrafting {
             auto new_kvo_notifying_class_class_impl = class_getMethodImplementation(refreshed_topmost_class, @selector(class));
             if (new_kvo_notifying_class_class_impl != (IMP)&_NSObjectClass) {
                 _compositedClassSetBackwardInstanceImpl(composited_class, new_kvo_notifying_class_class_impl, _ObjCCompositedClassBackwardInstanceImplKindKVOClass);
-                Cls::replaceInstanceMethod(refreshed_topmost_class, @selector(class), &_NSObjectClass);
+                _ObjCClass::replaceInstanceMethod(refreshed_topmost_class, @selector(class), &_NSObjectClass);
             }
         }
     }
     
-    void _ObjCGraftCenter::_setObjectClassHierarchyWithException(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap& graft_record_map) {
+    void _ObjCGraftCenter::_setObjectClassHierarchyWithException(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
         [NSException raise:NSInternalInconsistencyException format:@"Unkown is-a swizzle technique was found on object %@. Semantic Class = %@; Topmost Class = %@, Composited Class = %@.", [object description], NSStringFromClass(semantic_class), NSStringFromClass(topmost_class), NSStringFromClass(composited_class)];
     }
     
-    void _ObjCGraftCenter::_setObjectGraftInfo(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class composited_class, _ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap& graft_record_map) {
+    void _ObjCGraftCenter::_setObjectGraftInfo(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
         
         if (objectHasGraftInfo(object)) {
             if (graft_record_map.empty()) {
@@ -199,7 +193,7 @@ namespace objcgrafting {
             }
         } else {
             if (!graft_record_map.empty()) {
-                _objectAddGraftInfo(object, semantic_class, composited_class, grafted_protocol_list, graft_record_map);
+                _objectAddGraftInfo(object, semantic_class, composited_class, graft_record_map);
             }
         }
     }
@@ -235,8 +229,8 @@ namespace objcgrafting {
         return nil;
     }
     
-    void _ObjCGraftCenter::_objectAddGraftInfo(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class composited_class, _ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap& graft_record_map) {
-        graft_info_map_ -> emplace(object, std::make_unique<_ObjCGraftInfo>(semantic_class, composited_class, grafted_protocol_list, graft_record_map));
+    void _ObjCGraftCenter::_objectAddGraftInfo(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
+        graft_info_map_ -> emplace(object, std::make_unique<_ObjCGraftInfo>(semantic_class, composited_class, graft_record_map));
     }
     
     void _ObjCGraftCenter::_objectRemoveGraftInfo(__unsafe_unretained id object) {
@@ -299,7 +293,7 @@ namespace objcgrafting {
             auto current_class_impl = class_getMethodImplementation(kvo_notifying_class, @selector(class));
             if (current_class_impl != (IMP)&_NSObjectClass) {
                 _compositedClassSetBackwardInstanceImpl(composited_class, current_class_impl, _ObjCCompositedClassBackwardInstanceImplKindKVOClass);
-                Cls::replaceInstanceMethod(kvo_notifying_class, @selector(class), &_NSObjectClass);
+                _ObjCClass::replaceInstanceMethod(kvo_notifying_class, @selector(class), &_NSObjectClass);
             }
         }
     }
@@ -310,7 +304,7 @@ namespace objcgrafting {
             auto composited_class = objectGetGraftInfo(object).composited_class;
             auto backward_class_impl = _compositedClassGetBackwardInstanceImpl(composited_class, _ObjCCompositedClassBackwardInstanceImplKindKVOClass);
             if (backward_class_impl != nullptr) {
-                Cls::replaceInstanceMethod(kvo_notifying_class, @selector(class), backward_class_impl);
+                _ObjCClass::replaceInstanceMethod(kvo_notifying_class, @selector(class), backward_class_impl);
             }
         }
     }
@@ -384,16 +378,15 @@ namespace objcgrafting {
     }
     
 #pragma mark Resolving Composited Class
-    Class _ObjCGraftCenter::_resolveCompositedClass(id object, _ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap& graft_record_map) {
+    Class _ObjCGraftCenter::_resolveCompositedClass(id object, _ObjCGraftRecordMap& graft_record_map) {
         
-        if (grafted_protocol_list.empty()) {
-            assert(graft_record_map.empty());
+        if (graft_record_map.empty()) {
             return nil;
         }
         
         auto semantic_class = [object class];
         
-        auto grafted_components_id = _graftedProtocolIdentifier(grafted_protocol_list, graft_record_map);
+        auto grafted_components_id = _graftedProtocolIdentifier(graft_record_map);
         
         auto class_name = [NSString stringWithFormat:@"_ObjCGrafted_%@_%@", NSStringFromClass(semantic_class), grafted_components_id];
         
@@ -406,10 +399,10 @@ namespace objcgrafting {
             _ObjCCompositedClassInitialize(cls);
             objc_registerClassPair(cls);
             
-            _compositedClassAddSystematicProtocols(cls);
-            _compositedClassAddUserDefinedProtocols(cls, grafted_protocol_list);
-            _compositedClassAddSystematicMethods(cls);
-            _compositedClassAddUserDefinedMethods(cls, grafted_protocol_list, graft_record_map);
+            _compositedClassAddSystemProtocols(cls);
+            _compositedClassAddUserDefinedProtocols(cls, graft_record_map);
+            _compositedClassAddSystemMethods(cls);
+            _compositedClassAddUserDefinedMethods(cls, graft_record_map);
             
             assert(cls != nullptr);
         }
@@ -417,12 +410,13 @@ namespace objcgrafting {
         return cls;
     }
     
-    NSString * _ObjCGraftCenter::_graftedProtocolIdentifier(_ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap& graft_record_map) {
+    NSString * _ObjCGraftCenter::_graftedProtocolIdentifier(_ObjCGraftRecordMap& graft_record_map) {
         auto component_names = [[NSMutableArray<NSString *> alloc] init];
         
         auto protocols = std::make_unique<std::vector<Protocol * __unsafe_unretained>>();
         
-        for (auto& protocol: grafted_protocol_list) {
+        for (auto& pair: graft_record_map) {
+            auto &protocol = pair.first;
             auto source_class = graft_record_map[protocol];
             assert(source_class != nullptr);
             protocols -> push_back(protocol);
@@ -437,18 +431,18 @@ namespace objcgrafting {
         return grafted_components_id;
     }
     
-    void _ObjCGraftCenter::_compositedClassAddSystematicProtocols(__unsafe_unretained Class cls) {
+    void _ObjCGraftCenter::_compositedClassAddSystemProtocols(__unsafe_unretained Class cls) {
         // Conforms to _ObjCGrafted.
         class_addProtocol(cls, @protocol(_ObjCGrafted));
     }
     
-    void _ObjCGraftCenter::_compositedClassAddUserDefinedProtocols(__unsafe_unretained Class cls, _ObjCProtocolList& grafted_protocol_list) {
-        for (auto& protocol: grafted_protocol_list) {
-            class_addProtocol(cls, protocol);
+    void _ObjCGraftCenter::_compositedClassAddUserDefinedProtocols(__unsafe_unretained Class cls, _ObjCGraftRecordMap& graft_record_map) {
+        for (auto& pair: graft_record_map) {
+            class_addProtocol(cls, pair.first);
         }
     }
     
-    void _ObjCGraftCenter::_compositedClassAddSystematicMethods(__unsafe_unretained Class cls) {
+    void _ObjCGraftCenter::_compositedClassAddSystemMethods(__unsafe_unretained Class cls) {
         // Add [NSObject -class]
         class_addMethod(cls, @selector(class), (IMP)&_NSObjectClass, "@:");
         
@@ -456,9 +450,9 @@ namespace objcgrafting {
         class_addMethod(cls, NSSelectorFromString(@"dealloc"), (IMP)&_NSObjectDealloc, "@:");
     }
     
-    void _ObjCGraftCenter::_compositedClassAddUserDefinedMethods(__unsafe_unretained Class cls, _ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap& graft_record_map) {
+    void _ObjCGraftCenter::_compositedClassAddUserDefinedMethods(__unsafe_unretained Class cls, _ObjCGraftRecordMap& graft_record_map) {
         
-        auto graft_combination_list = _resolveGraftCombinationList(grafted_protocol_list, graft_record_map);
+        auto graft_combination_list = _resolveGraftCombinationList(graft_record_map);
         
         Class metaClass = objc_getMetaClass(class_getName(cls));
         
@@ -477,13 +471,13 @@ namespace objcgrafting {
         }
     }
     
-    std::unique_ptr<ObjCProtocolUnorderedSet> _ObjCGraftCenter::_resolveNetTopmostGraftedProtocols(_ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap& graft_record_map) {
-        auto resolved_protocol_set = std::make_unique<ObjCProtocolUnorderedSet>();
+    std::unique_ptr<_ObjCProtocolUnorderedSet> _ObjCGraftCenter::_resolveNetTopmostGraftedProtocols(_ObjCGraftRecordMap& graft_record_map) {
+        auto resolved_protocol_set = std::make_unique<_ObjCProtocolUnorderedSet>();
         
-        auto net_topmost_protocol_set = std::make_unique<ObjCProtocolUnorderedSet>();
+        auto net_topmost_protocol_set = std::make_unique<_ObjCProtocolUnorderedSet>();
         
         for (auto& pair: graft_record_map) {
-            auto topmost_protocol = pair.first;
+            auto &topmost_protocol = pair.first;
             
             if (resolved_protocol_set -> find(topmost_protocol) == resolved_protocol_set -> cend()) {
                 
@@ -524,9 +518,9 @@ namespace objcgrafting {
         return net_topmost_protocol_set;
     }
     
-    std::unique_ptr<_ObjCGraftCombinationList> _ObjCGraftCenter::_resolveGraftCombinationList(_ObjCProtocolList& grafted_protocol_list, _ObjCGraftRecordMap &graft_record_map) {
+    std::unique_ptr<_ObjCGraftCombinationList> _ObjCGraftCenter::_resolveGraftCombinationList(_ObjCGraftRecordMap &graft_record_map) {
         
-        auto net_topmost_protocol_set = _resolveNetTopmostGraftedProtocols(grafted_protocol_list, graft_record_map);
+        auto net_topmost_protocol_set = _resolveNetTopmostGraftedProtocols(graft_record_map);
         
         auto graft_combination_list = std::make_unique<_ObjCGraftCombinationList>();
         
@@ -534,7 +528,8 @@ namespace objcgrafting {
         
         auto grafted_class_selector_set = std::make_unique<std::unordered_set<SEL>>();
         
-        for (auto& grafted_protocol: grafted_protocol_list) {
+        for (auto& pair: graft_record_map) {
+            auto &grafted_protocol = pair.first;
             
             if (net_topmost_protocol_set -> find(grafted_protocol) != net_topmost_protocol_set -> cend()) {
                 auto source_class = graft_record_map[grafted_protocol];
@@ -628,7 +623,7 @@ namespace objcgrafting {
     }
     
 #pragma mark Accessing Elements in Registered Protocol Graph
-    ObjCProtocolGraph& _ObjCGraftCenter::_registeredProtocolGraph() {
+    _ObjCProtocolGraph& _ObjCGraftCenter::_registeredProtocolGraph() {
         return *registered_protocol_graph_;
     }
     

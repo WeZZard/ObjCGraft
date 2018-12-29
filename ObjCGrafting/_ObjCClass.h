@@ -1,5 +1,5 @@
 //
-//  ClassUtilities.h
+//  _ObjCClass.h
 //  ObjCGrafting
 //
 //  Created on 29/12/2018.
@@ -11,7 +11,7 @@
 #import <objc/runtime.h>
 
 namespace objcgrafting {
-    class Cls {
+    class _ObjCClass {
     public:
         template <typename T>
         static T * replaceInstanceMethod(Class cls, SEL selector, T * impl) {

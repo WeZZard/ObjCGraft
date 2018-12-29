@@ -75,10 +75,10 @@
 		9C22843721D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22843121D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm */; };
 		9C22843821D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22843121D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm */; };
 		9C22843921D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22843121D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm */; };
-		9C22844621D7A8C000BD32DD /* ClassUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22844421D7A8C000BD32DD /* ClassUtilities.h */; };
-		9C22844721D7A8C000BD32DD /* ClassUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22844421D7A8C000BD32DD /* ClassUtilities.h */; };
-		9C22844821D7A8C000BD32DD /* ClassUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22844421D7A8C000BD32DD /* ClassUtilities.h */; };
-		9C22844921D7A8C000BD32DD /* ClassUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22844421D7A8C000BD32DD /* ClassUtilities.h */; };
+		9C22844621D7A8C000BD32DD /* _ObjCClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22844421D7A8C000BD32DD /* _ObjCClass.h */; };
+		9C22844721D7A8C000BD32DD /* _ObjCClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22844421D7A8C000BD32DD /* _ObjCClass.h */; };
+		9C22844821D7A8C000BD32DD /* _ObjCClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22844421D7A8C000BD32DD /* _ObjCClass.h */; };
+		9C22844921D7A8C000BD32DD /* _ObjCClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22844421D7A8C000BD32DD /* _ObjCClass.h */; };
 		9C22845421D7AC0000BD32DD /* _ObjCGrafted.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22845321D7AC0000BD32DD /* _ObjCGrafted.h */; };
 		9C22845521D7AC0000BD32DD /* _ObjCGrafted.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22845321D7AC0000BD32DD /* _ObjCGrafted.h */; };
 		9C22845621D7AC0000BD32DD /* _ObjCGrafted.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22845321D7AC0000BD32DD /* _ObjCGrafted.h */; };
@@ -178,7 +178,7 @@
 		9C22842721D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSArray+_KVOSpecialTreatment.mm"; sourceTree = "<group>"; };
 		9C22843021D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+_KVOSpecialTreatment.h"; sourceTree = "<group>"; };
 		9C22843121D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSObject+_KVOSpecialTreatment.mm"; sourceTree = "<group>"; };
-		9C22844421D7A8C000BD32DD /* ClassUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassUtilities.h; sourceTree = "<group>"; };
+		9C22844421D7A8C000BD32DD /* _ObjCClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _ObjCClass.h; sourceTree = "<group>"; };
 		9C22845321D7AC0000BD32DD /* _ObjCGrafted.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _ObjCGrafted.h; sourceTree = "<group>"; };
 		9CD235E321D75D900063809A /* Aspect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Aspect.h; sourceTree = "<group>"; };
 		9CD235E421D75D970063809A /* SubAspect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubAspect.h; sourceTree = "<group>"; };
@@ -346,8 +346,8 @@
 				9C22842721D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.mm */,
 				9CD2D9D121775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h */,
 				9CD2D9D221775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m */,
+				9C22844421D7A8C000BD32DD /* _ObjCClass.h */,
 				9CD2D9CF21775A4200FFD1A9 /* ObjCGraftCommon.h */,
-				9C22844421D7A8C000BD32DD /* ClassUtilities.h */,
 				9CD2D9D321775A4200FFD1A9 /* ObjCGraftImplementation.swift */,
 				9CD2D9CE217758F400FFD1A9 /* Supporting Files */,
 			);
@@ -408,7 +408,7 @@
 				9CD2D9D521775A4300FFD1A9 /* ObjCGraftCommon.h in Headers */,
 				9CD2D9D921775A4300FFD1A9 /* ObjCGraft.h in Headers */,
 				9CD2D9DD21775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h in Headers */,
-				9C22844621D7A8C000BD32DD /* ClassUtilities.h in Headers */,
+				9C22844621D7A8C000BD32DD /* _ObjCClass.h in Headers */,
 				9C22843221D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h in Headers */,
 				9C22846021D7B0D600BD32DD /* _ObjCGraftCombination.h in Headers */,
 				9C22841E21D7995200BD32DD /* NSObject+ObjCGrafting.h in Headers */,
@@ -429,7 +429,7 @@
 				9CD2D9D621775A4300FFD1A9 /* ObjCGraftCommon.h in Headers */,
 				9CD2D9DA21775A4300FFD1A9 /* ObjCGraft.h in Headers */,
 				9CD2D9DE21775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h in Headers */,
-				9C22844721D7A8C000BD32DD /* ClassUtilities.h in Headers */,
+				9C22844721D7A8C000BD32DD /* _ObjCClass.h in Headers */,
 				9C22843321D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h in Headers */,
 				9C22846221D7B0D600BD32DD /* _ObjCGraftCombination.h in Headers */,
 				9C22841F21D7995200BD32DD /* NSObject+ObjCGrafting.h in Headers */,
@@ -450,7 +450,7 @@
 				9CD2D9D721775A4300FFD1A9 /* ObjCGraftCommon.h in Headers */,
 				9CD2D9DB21775A4300FFD1A9 /* ObjCGraft.h in Headers */,
 				9CD2D9DF21775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h in Headers */,
-				9C22844821D7A8C000BD32DD /* ClassUtilities.h in Headers */,
+				9C22844821D7A8C000BD32DD /* _ObjCClass.h in Headers */,
 				9C22843421D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h in Headers */,
 				9C22846421D7B0D700BD32DD /* _ObjCGraftCombination.h in Headers */,
 				9C22842021D7995200BD32DD /* NSObject+ObjCGrafting.h in Headers */,
@@ -471,7 +471,7 @@
 				9CD2D9D821775A4300FFD1A9 /* ObjCGraftCommon.h in Headers */,
 				9CD2D9DC21775A4300FFD1A9 /* ObjCGraft.h in Headers */,
 				9CD2D9E021775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h in Headers */,
-				9C22844921D7A8C000BD32DD /* ClassUtilities.h in Headers */,
+				9C22844921D7A8C000BD32DD /* _ObjCClass.h in Headers */,
 				9C22843521D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h in Headers */,
 				9C22846621D7B0D700BD32DD /* _ObjCGraftCombination.h in Headers */,
 				9C22842121D7995200BD32DD /* NSObject+ObjCGrafting.h in Headers */,

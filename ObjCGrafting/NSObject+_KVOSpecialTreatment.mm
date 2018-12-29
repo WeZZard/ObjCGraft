@@ -7,7 +7,7 @@
 
 #import "NSObject+_KVOSpecialTreatment.h"
 
-#import "ClassUtilities.h"
+#import "_ObjCClass.h"
 #import "_ObjCGraftCenter.h"
 
 static NSObjectAddObserverForKeyPathOptionsContext _NSObjectAddObserverForKeyPathOptionsContext;
@@ -21,11 +21,11 @@ NSObjectRemoveObserverForKeyPathContext * _kNSObjectRemoveObserverForKeyPathCont
 @implementation NSObject(_KVOSpecialTreatment)
 + (void)load
 {
-    _kNSObjectAddObserverForKeyPathOptionsContext = objcgrafting::Cls::replaceInstanceMethod(self, @selector(addObserver:forKeyPath:options:context:), &_NSObjectAddObserverForKeyPathOptionsContext);
+    _kNSObjectAddObserverForKeyPathOptionsContext = objcgrafting::_ObjCClass::replaceInstanceMethod(self, @selector(addObserver:forKeyPath:options:context:), &_NSObjectAddObserverForKeyPathOptionsContext);
     
-    _kNSObjectRemoveObserverForKeyPath = objcgrafting::Cls::replaceInstanceMethod(self, @selector(removeObserver:forKeyPath:), &_NSObjectRemoveObserverForKeyPath);
+    _kNSObjectRemoveObserverForKeyPath = objcgrafting::_ObjCClass::replaceInstanceMethod(self, @selector(removeObserver:forKeyPath:), &_NSObjectRemoveObserverForKeyPath);
     
-    _kNSObjectRemoveObserverForKeyPathContext = objcgrafting::Cls::replaceInstanceMethod(self, @selector(removeObserver:forKeyPath:context:), &_NSObjectRemoveObserverForKeyPathContext);
+    _kNSObjectRemoveObserverForKeyPathContext = objcgrafting::_ObjCClass::replaceInstanceMethod(self, @selector(removeObserver:forKeyPath:context:), &_NSObjectRemoveObserverForKeyPathContext);
 }
 @end
 
