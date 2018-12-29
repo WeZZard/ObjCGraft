@@ -10,6 +10,7 @@
 
 #import "_ObjCClass.h"
 #import "_ObjCGrafted.h"
+#import "_ObjCCompositedClass.h"
 #import "_ObjCKeyValueObservationRecord.h"
 #import "_ObjCKeyValueObservationRecordList.h"
 #import "NSObject+ObjCGrafting.h"
@@ -129,7 +130,7 @@ namespace objcgrafting {
         // Return the implementation of -class method if needed
         if (objectHasGraftInfo(object)) {
             auto old_composited_class = objectGetGraftInfo(object).composited_class;
-            auto kvo_notifying_class_class_impl = _compositedClassGetBackwardInstanceImpl(old_composited_class, _ObjCCompositedClassBackwardInstanceImplKindKVOClass);
+            auto kvo_notifying_class_class_impl = _ObjCCompositedClass::getBackwardInstanceImpl(old_composited_class, _ObjCCompositedClassBackwardInstanceImplKindKVOClass);
             if (kvo_notifying_class_class_impl != nullptr) {
                 _ObjCClass::replaceInstanceMethod(kvo_notifying_class, @selector(class), kvo_notifying_class_class_impl);
             }
@@ -170,7 +171,7 @@ namespace objcgrafting {
         if (composited_class != nullptr) {
             auto new_kvo_notifying_class_class_impl = class_getMethodImplementation(refreshed_topmost_class, @selector(class));
             if (new_kvo_notifying_class_class_impl != (IMP)&_NSObjectClass) {
-                _compositedClassSetBackwardInstanceImpl(composited_class, new_kvo_notifying_class_class_impl, _ObjCCompositedClassBackwardInstanceImplKindKVOClass);
+                _ObjCCompositedClass::setBackwardInstanceImpl(composited_class, new_kvo_notifying_class_class_impl, _ObjCCompositedClassBackwardInstanceImplKindKVOClass);
                 _ObjCClass::replaceInstanceMethod(refreshed_topmost_class, @selector(class), &_NSObjectClass);
             }
         }
@@ -207,6 +208,16 @@ namespace objcgrafting {
         return * (* graft_info_map_)[object];
     }
     
+    IMP _ObjCGraftCenter::objectGetBackwardInstanceImpl(id object, _ObjCCompositedClassBackwardInstanceImplKind kind) {
+        if (objectHasGraftInfo(object)) {
+            auto& graft_info = objectGetGraftInfo(object);
+            auto composited_class = graft_info.composited_class;
+            IMP backward_instance_impl = _ObjCCompositedClass::getBackwardInstanceImpl(composited_class, kind);
+            return backward_instance_impl;
+        }
+        return nil;
+    }
+    
     _ObjCKeyValueObservationRecordList * _ObjCGraftCenter::objectGetKeyValueObservationRecords(id object) {
         auto existed_record_list_positoin = key_value_observation_records_map_ -> find(object);
         
@@ -217,16 +228,6 @@ namespace objcgrafting {
             (* key_value_observation_records_map_)[object] = list;
             return list;
         }
-    }
-    
-    IMP _ObjCGraftCenter::objectGetBackwardInstanceImpl(id object, _ObjCCompositedClassBackwardInstanceImplKind kind) {
-        if (objectHasGraftInfo(object)) {
-            auto& graft_info = objectGetGraftInfo(object);
-            auto composited_class = graft_info.composited_class;
-            IMP backward_instance_impl = _compositedClassGetBackwardInstanceImpl(composited_class, kind);
-            return backward_instance_impl;
-        }
-        return nil;
     }
     
     void _ObjCGraftCenter::_objectAddGraftInfo(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
@@ -292,7 +293,7 @@ namespace objcgrafting {
             auto kvo_notifying_class = object_getClass(object);
             auto current_class_impl = class_getMethodImplementation(kvo_notifying_class, @selector(class));
             if (current_class_impl != (IMP)&_NSObjectClass) {
-                _compositedClassSetBackwardInstanceImpl(composited_class, current_class_impl, _ObjCCompositedClassBackwardInstanceImplKindKVOClass);
+                _ObjCCompositedClass::setBackwardInstanceImpl(composited_class, current_class_impl, _ObjCCompositedClassBackwardInstanceImplKindKVOClass);
                 _ObjCClass::replaceInstanceMethod(kvo_notifying_class, @selector(class), &_NSObjectClass);
             }
         }
@@ -302,7 +303,7 @@ namespace objcgrafting {
         if (objectHasGraftInfo(object)) {
             auto kvo_notifying_class = object_getClass(object);
             auto composited_class = objectGetGraftInfo(object).composited_class;
-            auto backward_class_impl = _compositedClassGetBackwardInstanceImpl(composited_class, _ObjCCompositedClassBackwardInstanceImplKindKVOClass);
+            auto backward_class_impl = _ObjCCompositedClass::getBackwardInstanceImpl(composited_class, _ObjCCompositedClassBackwardInstanceImplKindKVOClass);
             if (backward_class_impl != nullptr) {
                 _ObjCClass::replaceInstanceMethod(kvo_notifying_class, @selector(class), backward_class_impl);
             }
@@ -399,10 +400,12 @@ namespace objcgrafting {
             _ObjCCompositedClassInitialize(cls);
             objc_registerClassPair(cls);
             
-            _compositedClassAddSystemProtocols(cls);
-            _compositedClassAddUserDefinedProtocols(cls, graft_record_map);
-            _compositedClassAddSystemMethods(cls);
-            _compositedClassAddUserDefinedMethods(cls, graft_record_map);
+            auto graft_combination_list = _resolveGraftCombinationList(graft_record_map);
+            
+            _ObjCCompositedClass::addSystemProtocols(cls);
+            _ObjCCompositedClass::addUserDefinedProtocols(cls, graft_record_map);
+            _ObjCCompositedClass::addSystemMethods(cls);
+            _ObjCCompositedClass::addUserDefinedMethods(cls, * graft_combination_list);
             
             assert(cls != nullptr);
         }
@@ -429,46 +432,6 @@ namespace objcgrafting {
         auto grafted_components_id = [component_names componentsJoinedByString:@"|"];
         
         return grafted_components_id;
-    }
-    
-    void _ObjCGraftCenter::_compositedClassAddSystemProtocols(__unsafe_unretained Class cls) {
-        // Conforms to _ObjCGrafted.
-        class_addProtocol(cls, @protocol(_ObjCGrafted));
-    }
-    
-    void _ObjCGraftCenter::_compositedClassAddUserDefinedProtocols(__unsafe_unretained Class cls, _ObjCGraftRecordMap& graft_record_map) {
-        for (auto& pair: graft_record_map) {
-            class_addProtocol(cls, pair.first);
-        }
-    }
-    
-    void _ObjCGraftCenter::_compositedClassAddSystemMethods(__unsafe_unretained Class cls) {
-        // Add [NSObject -class]
-        class_addMethod(cls, @selector(class), (IMP)&_NSObjectClass, "@:");
-        
-        // Add [NSObject -dealloc]
-        class_addMethod(cls, NSSelectorFromString(@"dealloc"), (IMP)&_NSObjectDealloc, "@:");
-    }
-    
-    void _ObjCGraftCenter::_compositedClassAddUserDefinedMethods(__unsafe_unretained Class cls, _ObjCGraftRecordMap& graft_record_map) {
-        
-        auto graft_combination_list = _resolveGraftCombinationList(graft_record_map);
-        
-        Class metaClass = objc_getMetaClass(class_getName(cls));
-        
-        for (auto& graft: * graft_combination_list) {
-            if (graft.is_instance) {
-                if (graft.name == @selector(class)) {
-                    _compositedClassSetBackwardInstanceImpl(cls, graft.impl, _ObjCCompositedClassBackwardInstanceImplKindClass);
-                } else if (graft.name == NSSelectorFromString(@"dealloc")) {
-                    _compositedClassSetBackwardInstanceImpl(cls, graft.impl, _ObjCCompositedClassBackwardInstanceImplKindDealloc);
-                } else {
-                    class_addMethod(cls, graft.name, graft.impl, graft.types);
-                }
-            } else {
-                class_addMethod(metaClass, graft.name, graft.impl, graft.types);
-            }
-        }
     }
     
     std::unique_ptr<_ObjCProtocolUnorderedSet> _ObjCGraftCenter::_resolveNetTopmostGraftedProtocols(_ObjCGraftRecordMap& graft_record_map) {
@@ -611,15 +574,6 @@ namespace objcgrafting {
         }
         
         return graft_combination_list;
-    }
-    
-#pragma mark Accessing Composited Class Info
-    void _ObjCGraftCenter::_compositedClassSetBackwardInstanceImpl(Class cls, IMP impl, _ObjCCompositedClassBackwardInstanceImplKind kind) {
-        _ObjCCompositedClassSetBackwardInstanceImpl(cls, impl, kind);
-    }
-    
-    IMP _ObjCGraftCenter::_compositedClassGetBackwardInstanceImpl(Class cls, _ObjCCompositedClassBackwardInstanceImplKind kind) {
-        return _ObjCCompositedClassGetBackwardInstanceImpl(cls, kind);
     }
     
 #pragma mark Accessing Elements in Registered Protocol Graph

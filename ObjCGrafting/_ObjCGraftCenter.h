@@ -31,7 +31,7 @@ namespace objcgrafting {
     public:
         static _ObjCGraftCenter& shared();
         
-#pragma mark Grafting Object
+#pragma mark Managing Object's Implementation Grafting
     public:
         id graftImplementationOfProtocolsFromClassesToObject(id object, Protocol * __unsafe_unretained *  protocols, __unsafe_unretained Class * source_classes, unsigned int count);
         id removeGraftedImplementationsOfProtocolsFromObject(id object, Protocol * __unsafe_unretained * protocols, unsigned int count);
@@ -88,20 +88,12 @@ namespace objcgrafting {
         void _initLock();
         void _destroyLock();
         
-#pragma mark Resolving Composited Class
+#pragma mark Resolving Compositions
     private:
         Class _resolveCompositedClass(id object, _ObjCGraftRecordMap& graft_record_map);
         NSString * _graftedProtocolIdentifier(_ObjCGraftRecordMap& graft_record_map);
-        void _compositedClassAddSystemProtocols(__unsafe_unretained Class cls);
-        void _compositedClassAddUserDefinedProtocols(__unsafe_unretained Class cls, _ObjCGraftRecordMap& graft_record_map);
-        void _compositedClassAddSystemMethods(__unsafe_unretained Class cls);
-        void _compositedClassAddUserDefinedMethods(__unsafe_unretained Class cls, _ObjCGraftRecordMap& graft_record_map);
         std::unique_ptr<_ObjCProtocolUnorderedSet> _resolveNetTopmostGraftedProtocols(_ObjCGraftRecordMap& graft_record_map);
         std::unique_ptr<_ObjCGraftCombinationList> _resolveGraftCombinationList(_ObjCGraftRecordMap& graft_record_map);
-        
-#pragma mark Accessing Composited Class Info
-        void _compositedClassSetBackwardInstanceImpl(Class cls, IMP kind, _ObjCCompositedClassBackwardInstanceImplKind instance_impl);
-        IMP _compositedClassGetBackwardInstanceImpl(Class cls, _ObjCCompositedClassBackwardInstanceImplKind kind);
         
 #pragma mark Accessing Elements in Registered Protocol Graph
         _ObjCProtocolGraph& _registeredProtocolGraph();
