@@ -11,39 +11,14 @@ import XCTest
 @testable
 import ObjCGrafting
 
-
-@objc
-internal class Observer: NSObject {
-    
-    @objc
-    var intValues: [Int] = []
-    
-    override func observeValue(
-        forKeyPath keyPath: String?,
-        of object: Any?,
-        change: [NSKeyValueChangeKey : Any]?,
-        context: UnsafeMutableRawPointer?
-        )
-    {
-        assert(keyPath == "intValue")
-        
-        let newIntValue = change![.newKey] as! Int
-        
-        intValues.append(newIntValue)
-    }
-}
-
-private let GraftableObjectName = GraftableObject.description()
-private let GraftImplSourceName = GraftImplSource.description()
-
 class ObjCGraftProtocolImplementationTest: XCTestCase {
     
-    var object: GraftableObject!
+    var object: ManipulatedObject!
     
     override func setUp() {
         super.setUp()
         
-        object = GraftableObject()
+        object = ManipulatedObject()
     }
     
     override func tearDown() {
@@ -55,48 +30,48 @@ class ObjCGraftProtocolImplementationTest: XCTestCase {
     // MARK: Test interface's basic functionalities
     func testObjCGraftImplementation() {
         _ = ObjCGraftImplementation(
-            of: GraftTableExpanded.self,
-            on: GraftImplSource.self,
+            of: SubAspect.self,
+            on: ImplSource.self,
             to: object
         )
         
-        XCTAssert(object.conforms(to: GraftTableExpanded.self))
+        XCTAssert(object.conforms(to: SubAspect.self))
         
         let expectedInstanceMethodAccessRecords = [
-            NSStringFromSelector(#selector(getter: GraftableObject.intValue)): GraftImplSourceName,
-            NSStringFromSelector(#selector(setter: GraftableObject.intValue)): GraftableObjectName,
-            NSStringFromSelector(#selector(GraftableObject.fatherInstanceMethod)): GraftImplSourceName,
-            NSStringFromSelector(#selector(GraftableObject.childInstanceMethod)): GraftImplSourceName,
+            NSStringFromSelector(#selector(getter: ManipulatedObject.intValue)): ImplSourceName,
+            NSStringFromSelector(#selector(setter: ManipulatedObject.intValue)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.parentInstanceMethod)): ImplSourceName,
+            NSStringFromSelector(#selector(ManipulatedObject.childInstanceMethod)): ImplSourceName,
         ]
         
         let expectedClassMethodAccessRecords = [
-            NSStringFromSelector(#selector(GraftableObject.fatherClassMethod)): GraftImplSourceName,
-            NSStringFromSelector(#selector(GraftableObject.childClassMethod)): GraftImplSourceName,
+            NSStringFromSelector(#selector(ManipulatedObject.parentClassMethod)): ImplSourceName,
+            NSStringFromSelector(#selector(ManipulatedObject.childClassMethod)): ImplSourceName,
         ]
         
         _assertObjectAccessRecord(bySettingIntValue: 0, with: expectedInstanceMethodAccessRecords, with: expectedClassMethodAccessRecords)
     }
     
-    func testObjCUngraftImplementation() {
+    func testObjCRemoveAllGraftedImplementations() {
         
         _ = ObjCGraftImplementation(
-            of: GraftTableExpanded.self,
-            on: GraftImplSource.self,
+            of: SubAspect.self,
+            on: ImplSource.self,
             to: object
         )
         
-        ObjCUngraftAllImplementationsOfProtocols(on: object)
+        ObjCRemoveAllGraftedImplementations(from: object)
         
         let expectedInstanceMethodAccessRecords = [
-            NSStringFromSelector(#selector(getter: GraftableObject.intValue)): GraftableObjectName,
-            NSStringFromSelector(#selector(setter: GraftableObject.intValue)): GraftableObjectName,
-            NSStringFromSelector(#selector(GraftableObject.fatherInstanceMethod)): GraftableObjectName,
-            NSStringFromSelector(#selector(GraftableObject.childInstanceMethod)): GraftableObjectName,
+            NSStringFromSelector(#selector(getter: ManipulatedObject.intValue)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(setter: ManipulatedObject.intValue)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.parentInstanceMethod)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.childInstanceMethod)): ManipulatedObjectName,
         ]
         
         let expectedClassMethodAccessRecords = [
-            NSStringFromSelector(#selector(GraftableObject.fatherClassMethod)): GraftableObjectName,
-            NSStringFromSelector(#selector(GraftableObject.childClassMethod)): GraftableObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.parentClassMethod)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.childClassMethod)): ManipulatedObjectName,
         ]
         
         _assertObjectAccessRecord(bySettingIntValue: 0, with: expectedInstanceMethodAccessRecords, with: expectedClassMethodAccessRecords)
@@ -110,21 +85,21 @@ class ObjCGraftProtocolImplementationTest: XCTestCase {
         object.addObserver(observer, forKeyPath: "intValue", options: [.new], context: nil)
         
         _ = ObjCGraftImplementation(
-            of: GraftTableExpanded.self,
-            on: GraftImplSource.self,
+            of: SubAspect.self,
+            on: ImplSource.self,
             to: object
         )
         
         let expectedInstanceMethodAccessRecords = [
-            NSStringFromSelector(#selector(getter: GraftableObject.intValue)): GraftImplSourceName,
-            NSStringFromSelector(#selector(setter: GraftableObject.intValue)): GraftableObjectName,
-            NSStringFromSelector(#selector(GraftableObject.fatherInstanceMethod)): GraftImplSourceName,
-            NSStringFromSelector(#selector(GraftableObject.childInstanceMethod)): GraftImplSourceName,
+            NSStringFromSelector(#selector(getter: ManipulatedObject.intValue)): ImplSourceName,
+            NSStringFromSelector(#selector(setter: ManipulatedObject.intValue)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.parentInstanceMethod)): ImplSourceName,
+            NSStringFromSelector(#selector(ManipulatedObject.childInstanceMethod)): ImplSourceName,
         ]
         
         let expectedClassMethodAccessRecords = [
-            NSStringFromSelector(#selector(GraftableObject.fatherClassMethod)): GraftImplSourceName,
-            NSStringFromSelector(#selector(GraftableObject.childClassMethod)): GraftImplSourceName,
+            NSStringFromSelector(#selector(ManipulatedObject.parentClassMethod)): ImplSourceName,
+            NSStringFromSelector(#selector(ManipulatedObject.childClassMethod)): ImplSourceName,
         ]
         
         _assertObjectAccessRecord(bySettingIntValue: 0, with: expectedInstanceMethodAccessRecords, with: expectedClassMethodAccessRecords)
@@ -141,18 +116,18 @@ class ObjCGraftProtocolImplementationTest: XCTestCase {
         
         XCTAssert(observer.intValues.elementsEqual([0]), "Unexpected observed int values: \(observer.intValues)")
         
-        ObjCUngraftAllImplementationsOfProtocols(on: object)
+        ObjCRemoveAllGraftedImplementations(from: object)
         
         let expectedInstanceMethodAccessRecords2 = [
-            NSStringFromSelector(#selector(getter: GraftableObject.intValue)): GraftableObjectName,
-            NSStringFromSelector(#selector(setter: GraftableObject.intValue)): GraftableObjectName,
-            NSStringFromSelector(#selector(GraftableObject.fatherInstanceMethod)): GraftableObjectName,
-            NSStringFromSelector(#selector(GraftableObject.childInstanceMethod)): GraftableObjectName,
+            NSStringFromSelector(#selector(getter: ManipulatedObject.intValue)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(setter: ManipulatedObject.intValue)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.parentInstanceMethod)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.childInstanceMethod)): ManipulatedObjectName,
         ]
         
         let expectedClassMethodAccessRecords2 = [
-            NSStringFromSelector(#selector(GraftableObject.fatherClassMethod)): GraftableObjectName,
-            NSStringFromSelector(#selector(GraftableObject.childClassMethod)): GraftableObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.parentClassMethod)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.childClassMethod)): ManipulatedObjectName,
         ]
         
         object.clearAccessRecords()
@@ -166,40 +141,40 @@ class ObjCGraftProtocolImplementationTest: XCTestCase {
         let observer = Observer()
         
         _ = ObjCGraftImplementation(
-            of: GraftTableExpanded.self,
-            on: GraftImplSource.self,
+            of: SubAspect.self,
+            on: ImplSource.self,
             to: object
         )
         
         object.addObserver(observer, forKeyPath: "intValue", options: [.new], context: nil)
         
         let expectedInstanceMethodAccessRecords = [
-            NSStringFromSelector(#selector(getter: GraftableObject.intValue)): GraftImplSourceName,
-            NSStringFromSelector(#selector(setter: GraftableObject.intValue)): GraftableObjectName,
-            NSStringFromSelector(#selector(GraftableObject.fatherInstanceMethod)): GraftImplSourceName,
-            NSStringFromSelector(#selector(GraftableObject.childInstanceMethod)): GraftImplSourceName,
-            ]
+            NSStringFromSelector(#selector(getter: ManipulatedObject.intValue)): ImplSourceName,
+            NSStringFromSelector(#selector(setter: ManipulatedObject.intValue)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.parentInstanceMethod)): ImplSourceName,
+            NSStringFromSelector(#selector(ManipulatedObject.childInstanceMethod)): ImplSourceName,
+        ]
         
         let expectedClassMethodAccessRecords = [
-            NSStringFromSelector(#selector(GraftableObject.fatherClassMethod)): GraftImplSourceName,
-            NSStringFromSelector(#selector(GraftableObject.childClassMethod)): GraftImplSourceName,
-            ]
+            NSStringFromSelector(#selector(ManipulatedObject.parentClassMethod)): ImplSourceName,
+            NSStringFromSelector(#selector(ManipulatedObject.childClassMethod)): ImplSourceName,
+        ]
         
         _assertObjectAccessRecord(bySettingIntValue: 0, with: expectedInstanceMethodAccessRecords, with: expectedClassMethodAccessRecords)
         
-        ObjCUngraftAllImplementationsOfProtocols(on: object)
+        ObjCRemoveAllGraftedImplementations(from: object)
         
         let expectedInstanceMethodAccessRecords2 = [
-            NSStringFromSelector(#selector(getter: GraftableObject.intValue)): GraftableObjectName,
-            NSStringFromSelector(#selector(setter: GraftableObject.intValue)): GraftableObjectName,
-            NSStringFromSelector(#selector(GraftableObject.fatherInstanceMethod)): GraftableObjectName,
-            NSStringFromSelector(#selector(GraftableObject.childInstanceMethod)): GraftableObjectName,
-            ]
+            NSStringFromSelector(#selector(getter: ManipulatedObject.intValue)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(setter: ManipulatedObject.intValue)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.parentInstanceMethod)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.childInstanceMethod)): ManipulatedObjectName,
+        ]
         
         let expectedClassMethodAccessRecords2 = [
-            NSStringFromSelector(#selector(GraftableObject.fatherClassMethod)): GraftableObjectName,
-            NSStringFromSelector(#selector(GraftableObject.childClassMethod)): GraftableObjectName,
-            ]
+            NSStringFromSelector(#selector(ManipulatedObject.parentClassMethod)): ManipulatedObjectName,
+            NSStringFromSelector(#selector(ManipulatedObject.childClassMethod)): ManipulatedObjectName,
+        ]
         
         object.clearAccessRecords()
         type(of: object!).clearAccessRecords()
@@ -226,22 +201,22 @@ class ObjCGraftProtocolImplementationTest: XCTestCase {
             object.addObserver(observer, forKeyPath: "intValue", options: [.new], context: nil)
             
             _ = ObjCGraftImplementation(
-                of: GraftTableExpanded.self,
-                on: GraftImplSource.self,
+                of: SubAspect.self,
+                on: ImplSource.self,
                 to: object
             )
             
             let expectedInstanceMethodAccessRecords = [
-                NSStringFromSelector(#selector(getter: GraftableObject.intValue)): GraftImplSourceName,
-                NSStringFromSelector(#selector(setter: GraftableObject.intValue)): GraftableObjectName,
-                NSStringFromSelector(#selector(GraftableObject.fatherInstanceMethod)): GraftImplSourceName,
-                NSStringFromSelector(#selector(GraftableObject.childInstanceMethod)): GraftImplSourceName,
-                ]
+                NSStringFromSelector(#selector(getter: ManipulatedObject.intValue)): ImplSourceName,
+                NSStringFromSelector(#selector(setter: ManipulatedObject.intValue)): ManipulatedObjectName,
+                NSStringFromSelector(#selector(ManipulatedObject.parentInstanceMethod)): ImplSourceName,
+                NSStringFromSelector(#selector(ManipulatedObject.childInstanceMethod)): ImplSourceName,
+            ]
             
             let expectedClassMethodAccessRecords = [
-                NSStringFromSelector(#selector(GraftableObject.fatherClassMethod)): GraftImplSourceName,
-                NSStringFromSelector(#selector(GraftableObject.childClassMethod)): GraftImplSourceName,
-                ]
+                NSStringFromSelector(#selector(ManipulatedObject.parentClassMethod)): ImplSourceName,
+                NSStringFromSelector(#selector(ManipulatedObject.childClassMethod)): ImplSourceName,
+            ]
             
             _assertObjectAccessRecord(bySettingIntValue: 0, with: expectedInstanceMethodAccessRecords, with: expectedClassMethodAccessRecords)
             
@@ -266,38 +241,38 @@ class ObjCGraftProtocolImplementationTest: XCTestCase {
             object.addObserver(observer, forKeyPath: "intValue", options: [.new], context: nil)
             
             _ = ObjCGraftImplementation(
-                of: GraftTableExpanded.self,
-                on: GraftImplSource.self,
+                of: SubAspect.self,
+                on: ImplSource.self,
                 to: object
             )
             
             let expectedInstanceMethodAccessRecords = [
-                NSStringFromSelector(#selector(getter: GraftableObject.intValue)): GraftImplSourceName,
-                NSStringFromSelector(#selector(setter: GraftableObject.intValue)): GraftableObjectName,
-                NSStringFromSelector(#selector(GraftableObject.fatherInstanceMethod)): GraftImplSourceName,
-                NSStringFromSelector(#selector(GraftableObject.childInstanceMethod)): GraftImplSourceName,
-                ]
+                NSStringFromSelector(#selector(getter: ManipulatedObject.intValue)): ImplSourceName,
+                NSStringFromSelector(#selector(setter: ManipulatedObject.intValue)): ManipulatedObjectName,
+                NSStringFromSelector(#selector(ManipulatedObject.parentInstanceMethod)): ImplSourceName,
+                NSStringFromSelector(#selector(ManipulatedObject.childInstanceMethod)): ImplSourceName,
+            ]
             
             let expectedClassMethodAccessRecords = [
-                NSStringFromSelector(#selector(GraftableObject.fatherClassMethod)): GraftImplSourceName,
-                NSStringFromSelector(#selector(GraftableObject.childClassMethod)): GraftImplSourceName,
-                ]
+                NSStringFromSelector(#selector(ManipulatedObject.parentClassMethod)): ImplSourceName,
+                NSStringFromSelector(#selector(ManipulatedObject.childClassMethod)): ImplSourceName,
+            ]
             
             _assertObjectAccessRecord(bySettingIntValue: 0, with: expectedInstanceMethodAccessRecords, with: expectedClassMethodAccessRecords)
             
-            ObjCUngraftAllImplementationsOfProtocols(on: object);
+            ObjCRemoveAllGraftedImplementations(from: object);
             
             let expectedInstanceMethodAccessRecords2 = [
-                NSStringFromSelector(#selector(getter: GraftableObject.intValue)): GraftableObjectName,
-                NSStringFromSelector(#selector(setter: GraftableObject.intValue)): GraftableObjectName,
-                NSStringFromSelector(#selector(GraftableObject.fatherInstanceMethod)): GraftableObjectName,
-                NSStringFromSelector(#selector(GraftableObject.childInstanceMethod)): GraftableObjectName,
-                ]
+                NSStringFromSelector(#selector(getter: ManipulatedObject.intValue)): ManipulatedObjectName,
+                NSStringFromSelector(#selector(setter: ManipulatedObject.intValue)): ManipulatedObjectName,
+                NSStringFromSelector(#selector(ManipulatedObject.parentInstanceMethod)): ManipulatedObjectName,
+                NSStringFromSelector(#selector(ManipulatedObject.childInstanceMethod)): ManipulatedObjectName,
+            ]
             
             let expectedClassMethodAccessRecords2 = [
-                NSStringFromSelector(#selector(GraftableObject.fatherClassMethod)): GraftableObjectName,
-                NSStringFromSelector(#selector(GraftableObject.childClassMethod)): GraftableObjectName,
-                ]
+                NSStringFromSelector(#selector(ManipulatedObject.parentClassMethod)): ManipulatedObjectName,
+                NSStringFromSelector(#selector(ManipulatedObject.childClassMethod)): ManipulatedObjectName,
+            ]
             
             object.clearAccessRecords()
             type(of: object!).clearAccessRecords()
@@ -325,38 +300,38 @@ class ObjCGraftProtocolImplementationTest: XCTestCase {
             object.addObserver(observer, forKeyPath: "intValue", options: [.new], context: nil)
             
             _ = ObjCGraftImplementation(
-                of: GraftTableExpanded.self,
-                on: GraftImplSource.self,
+                of: SubAspect.self,
+                on: ImplSource.self,
                 to: object
             )
             
             let expectedInstanceMethodAccessRecords = [
-                NSStringFromSelector(#selector(getter: GraftableObject.intValue)): GraftImplSourceName,
-                NSStringFromSelector(#selector(setter: GraftableObject.intValue)): GraftableObjectName,
-                NSStringFromSelector(#selector(GraftableObject.fatherInstanceMethod)): GraftImplSourceName,
-                NSStringFromSelector(#selector(GraftableObject.childInstanceMethod)): GraftImplSourceName,
-                ]
+                NSStringFromSelector(#selector(getter: ManipulatedObject.intValue)): ImplSourceName,
+                NSStringFromSelector(#selector(setter: ManipulatedObject.intValue)): ManipulatedObjectName,
+                NSStringFromSelector(#selector(ManipulatedObject.parentInstanceMethod)): ImplSourceName,
+                NSStringFromSelector(#selector(ManipulatedObject.childInstanceMethod)): ImplSourceName,
+            ]
             
             let expectedClassMethodAccessRecords = [
-                NSStringFromSelector(#selector(GraftableObject.fatherClassMethod)): GraftImplSourceName,
-                NSStringFromSelector(#selector(GraftableObject.childClassMethod)): GraftImplSourceName,
-                ]
+                NSStringFromSelector(#selector(ManipulatedObject.parentClassMethod)): ImplSourceName,
+                NSStringFromSelector(#selector(ManipulatedObject.childClassMethod)): ImplSourceName,
+            ]
             
             _assertObjectAccessRecord(bySettingIntValue: 0, with: expectedInstanceMethodAccessRecords, with: expectedClassMethodAccessRecords)
             
-            ObjCUngraftAllImplementationsOfProtocols(on: object);
+            ObjCRemoveAllGraftedImplementations(from: object);
             
             let expectedInstanceMethodAccessRecords2 = [
-                NSStringFromSelector(#selector(getter: GraftableObject.intValue)): GraftableObjectName,
-                NSStringFromSelector(#selector(setter: GraftableObject.intValue)): GraftableObjectName,
-                NSStringFromSelector(#selector(GraftableObject.fatherInstanceMethod)): GraftableObjectName,
-                NSStringFromSelector(#selector(GraftableObject.childInstanceMethod)): GraftableObjectName,
-                ]
+                NSStringFromSelector(#selector(getter: ManipulatedObject.intValue)): ManipulatedObjectName,
+                NSStringFromSelector(#selector(setter: ManipulatedObject.intValue)): ManipulatedObjectName,
+                NSStringFromSelector(#selector(ManipulatedObject.parentInstanceMethod)): ManipulatedObjectName,
+                NSStringFromSelector(#selector(ManipulatedObject.childInstanceMethod)): ManipulatedObjectName,
+            ]
             
             let expectedClassMethodAccessRecords2 = [
-                NSStringFromSelector(#selector(GraftableObject.fatherClassMethod)): GraftableObjectName,
-                NSStringFromSelector(#selector(GraftableObject.childClassMethod)): GraftableObjectName,
-                ]
+                NSStringFromSelector(#selector(ManipulatedObject.parentClassMethod)): ManipulatedObjectName,
+                NSStringFromSelector(#selector(ManipulatedObject.childClassMethod)): ManipulatedObjectName,
+            ]
             
             object.clearAccessRecords()
             type(of: object!).clearAccessRecords()
@@ -374,8 +349,8 @@ class ObjCGraftProtocolImplementationTest: XCTestCase {
             _assertObjectAccessRecord(bySettingIntValue: 0, with: expectedInstanceMethodAccessRecords2, with: expectedClassMethodAccessRecords2)
             
             _ = ObjCGraftImplementation(
-                of: GraftTableExpanded.self,
-                on: GraftImplSource.self,
+                of: SubAspect.self,
+                on: ImplSource.self,
                 to: object
             )
             
@@ -394,12 +369,12 @@ class ObjCGraftProtocolImplementationTest: XCTestCase {
         with expectedClassMethodAccessRecords: [String : String]
         )
     {
-        let Object = object_getClass(object) as! GraftableObject.Type
+        let Object = object_getClass(object) as! ManipulatedObject.Type
 
         _ = object.intValue
         object.intValue = intValue
-        object.fatherInstanceMethod()
-        Object.fatherClassMethod()
+        object.parentInstanceMethod()
+        Object.parentClassMethod()
         object.childInstanceMethod()
         Object.childClassMethod()
         
@@ -419,3 +394,24 @@ class ObjCGraftProtocolImplementationTest: XCTestCase {
     }
     
 }
+
+@objc class Observer: NSObject {
+    @objc var intValues: [Int] = []
+    
+    override func observeValue(
+        forKeyPath keyPath: String?,
+        of object: Any?,
+        change: [NSKeyValueChangeKey : Any]?,
+        context: UnsafeMutableRawPointer?
+        )
+    {
+        assert(keyPath == "intValue")
+        
+        let newIntValue = change![.newKey] as! Int
+        
+        intValues.append(newIntValue)
+    }
+}
+
+private let ManipulatedObjectName = ManipulatedObject.description()
+private let ImplSourceName = ImplSource.description()

@@ -1,23 +1,21 @@
 //
-//  GraftableObject.m
+//  ManipulatedObject.m
 //  ObjCGrafting
 //
 //  Created by WeZZard on 01/04/2017.
 //
 //
 
-#import "GraftableObject.h"
+#import "ManipulatedObject.h"
 
 static NSMutableDictionary * _mutableAccessRecords = nil;
 
-@interface GraftableObject()
+@interface ManipulatedObject()
 @property (nonatomic, class, strong) NSMutableDictionary * mutableAccessRecords;
 @property (nonatomic, strong) NSMutableDictionary * mutableAccessRecords;
-- (void)accessFromSelector:(SEL)selector withName:(NSString *)name;
-+ (void)accessFromSelector:(SEL)selector withName:(NSString *)name;
 @end
 
-@implementation GraftableObject
+@implementation ManipulatedObject
 @synthesize intValue = _intValue;
 @synthesize mutableAccessRecords = _mutableAccessRecords;
 
@@ -73,61 +71,33 @@ static NSMutableDictionary * _mutableAccessRecords = nil;
 
 - (NSInteger)intValue
 {
-    [self accessFromSelector:_cmd withName:[GraftableObject description]];
+    [self accessFromSelector:_cmd withName:[ManipulatedObject description]];
     return _intValue;
 }
 
 - (void)setIntValue:(NSInteger)intValue
 {
-    [self accessFromSelector:_cmd withName:[GraftableObject description]];
+    [self accessFromSelector:_cmd withName:[ManipulatedObject description]];
     _intValue = intValue;
 }
 
-- (void)fatherInstanceMethod
+- (void)parentInstanceMethod
 {
-    [self accessFromSelector:_cmd withName:[GraftableObject description]];
+    [self accessFromSelector:_cmd withName:[ManipulatedObject description]];
 }
 
-+ (void)fatherClassMethod
++ (void)parentClassMethod
 {
-    [self accessFromSelector:_cmd withName:[GraftableObject description]];
-}
-
-- (void)childInstanceMethod
-{
-    [self accessFromSelector:_cmd withName:[GraftableObject description]];
-}
-
-+ (void)childClassMethod
-{
-    [self accessFromSelector:_cmd withName:[GraftableObject description]];
-}
-@end
-
-@implementation GraftImplSource
-- (NSInteger)intValue
-{
-    [self accessFromSelector:_cmd withName:[GraftImplSource description]];
-    return 0;
-}
-
-- (void)fatherInstanceMethod
-{
-    [self accessFromSelector:_cmd withName:[GraftImplSource description]];
-}
-
-+ (void)fatherClassMethod
-{
-    [self accessFromSelector:_cmd withName:[GraftImplSource description]];
+    [self accessFromSelector:_cmd withName:[ManipulatedObject description]];
 }
 
 - (void)childInstanceMethod
 {
-    [self accessFromSelector:_cmd withName:[GraftImplSource description]];
+    [self accessFromSelector:_cmd withName:[ManipulatedObject description]];
 }
 
 + (void)childClassMethod
 {
-    [self accessFromSelector:_cmd withName:[GraftImplSource description]];
+    [self accessFromSelector:_cmd withName:[ManipulatedObject description]];
 }
 @end

@@ -10,7 +10,19 @@ import Foundation
 import ObjectiveC
 
 //MARK: - Graft
-/// Grafts the implementation of a protocol on a class to another object.
+
+/// Grafts the implementation of a protocol from a class to an object.
+///
+/// - Parameter protocol: The protocol defines the implementation to be
+///   grafted with.
+///
+/// - Parameter class: The class contains the implementation to be grafted
+///   from.
+///
+/// - Parameter object: The object to graft the implementation to.
+///
+/// - Returns: The grafted object. The same to the input `object`.
+///
 public func ObjCGraftImplementation<P>(
     of protocol: P.Type,
     on class: AnyClass,
@@ -20,10 +32,19 @@ public func ObjCGraftImplementation<P>(
     assert(`class` is P)
     let asAnyObject = `protocol` as AnyObject
     let asObjCProtocol = asAnyObject as! Protocol
-    let object = __object_graftProtocol(object, asObjCProtocol, `class`)
+    let object = __object_graftImplementationOfProtocol(object, asObjCProtocol, `class`)
     return unsafeBitCast(object as AnyObject, to: P.self)
 }
 
+
+/// Grafts the implementation of protocols from classes to an object.
+///
+/// - Parameter protocolClassPairs: An array of protocol-class pair.
+///
+/// - Parameter object: The object to graft the implementation to.
+///
+/// - Returns: The grafted object. The same to the input `object`.
+///
 public func ObjCGraftImplementations(
     to object: AnyObject,
     with protocolClassPairs: [(Protocol, AnyClass)]
@@ -46,7 +67,7 @@ public func ObjCGraftImplementations(
         sourceClasses
     )
     
-    _ = __object_graftProtocols(
+    _ = __object_graftImplementationsOfProtocols(
         object,
         argProtocols,
         argSourceClasses,
@@ -57,31 +78,79 @@ public func ObjCGraftImplementations(
     sourceClasses.deallocate()
 }
 
+
+/// Grafts the implementation of protocols from classes to an object.
+///
+/// - Parameter protocolClassPair: An protocol-class pair.
+///
+/// - Parameter object: The object to graft the implementation to.
+///
+/// - Returns: The grafted object. The same to the input `object`.
+///
 public func ObjCGraftImplementations(
     to object: AnyObject,
-    with protocolClassPairs: (Protocol, AnyClass)...
+    with protocolClassPair: (Protocol, AnyClass)...
     )
 {
-    ObjCGraftImplementations(to: object, with: protocolClassPairs)
+    ObjCGraftImplementations(to: object, with: protocolClassPair)
 }
 
-// MARK: - Ungraft
-public func ObjCUngraftImplementations(
-    of protocol: Protocol, on object: AnyObject
+// MARK: - Remove
+
+/// Removes the grafted implementation of the protocol from an object.
+///
+/// - Parameter protocol: The protocol defines the implementation to be
+///   removed with.
+///
+/// - Parameter object: The object whose grafted implementations to be
+///   removed from.
+///
+/// - Returns: The object with its grafted implementations removed. The
+///   same to the input `object`.
+///
+public func ObjCRemoveGraftedImplementations(
+    of protocol: Protocol,
+    from object: AnyObject
     )
 {
-    _ = __object_ungraftProtocol(object, `protocol`)
+    _ = __object_removeGraftedImplementationOfProtocol(object, `protocol`)
 }
 
-public func ObjCUngraftImplementations(
-    of protocols: Protocol..., on object: AnyObject
+
+/// Removes the grafted implementation of protocols from an object.
+///
+/// - Parameter protocol: The protocol defines the implementation to be
+///   removed with.
+///
+/// - Parameter object: The object whose grafted implementations to be
+///   removed from.
+///
+/// - Returns: The object with its grafted implementations removed. The
+///   same to the input `object`.
+///
+public func ObjCRemoveGraftedImplementations(
+    of protocol: Protocol...,
+    from object: AnyObject
     )
 {
-    _ = ObjCUngraftImplementations(of: protocols, on: object)
+    _ = ObjCRemoveGraftedImplementations(of: `protocol`, from: object)
 }
 
-public func ObjCUngraftImplementations(
-    of protocols: [Protocol], on object: AnyObject
+
+/// Removes the grafted implementation of protocols from an object.
+///
+/// - Parameter protocol: The protocols which define the implementations
+///   to be removed with.
+///
+/// - Parameter object: The object whose grafted implementations to be
+///   removed from.
+///
+/// - Returns: The object with its grafted implementations removed. The
+///   same to the input `object`.
+///
+public func ObjCRemoveGraftedImplementations(
+    of protocols: [Protocol],
+    from object: AnyObject
     )
 {
     let protocolCount = protocols.count
@@ -95,7 +164,7 @@ public func ObjCUngraftImplementations(
     
     let argProtocols = AutoreleasingUnsafeMutablePointer<Protocol>(protocolsPtr)
     
-    _ = __object_ungraftProtocols(
+    _ = __object_removeGraftedImplementationsOfProtocols(
         object,
         argProtocols,
         UInt32(protocolCount)
@@ -104,9 +173,15 @@ public func ObjCUngraftImplementations(
     protocolsPtr.deallocate()
 }
 
-public func ObjCUngraftAllImplementationsOfProtocols(
-    on object: AnyObject
-    )
-{
-    _ = __object_ungraftAllProtocols(object)
+
+/// Removes all the grafted implementations from an object.
+///
+/// - Parameter object: The object whose grafted implementations to be
+///   removed from.
+///
+/// - Returns: The object with its grafted implementations removed. The
+///   same to the input `object`.
+///
+public func ObjCRemoveAllGraftedImplementations(from object: AnyObject) {
+    _ = __object_removeAllGraftedImplementations(object)
 }

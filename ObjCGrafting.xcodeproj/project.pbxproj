@@ -7,25 +7,112 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C2283DB21D77A0500BD32DD /* GraftImplementationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283DA21D77A0500BD32DD /* GraftImplementationTests.m */; };
+		9C2283DC21D77A0500BD32DD /* GraftImplementationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283DA21D77A0500BD32DD /* GraftImplementationTests.m */; };
+		9C2283DD21D77A0500BD32DD /* GraftImplementationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283DA21D77A0500BD32DD /* GraftImplementationTests.m */; };
+		9C2283DF21D77A1D00BD32DD /* RemoveGraftedImplementationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283DE21D77A1D00BD32DD /* RemoveGraftedImplementationTests.m */; };
+		9C2283E021D77A1D00BD32DD /* RemoveGraftedImplementationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283DE21D77A1D00BD32DD /* RemoveGraftedImplementationTests.m */; };
+		9C2283E121D77A1D00BD32DD /* RemoveGraftedImplementationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283DE21D77A1D00BD32DD /* RemoveGraftedImplementationTests.m */; };
+		9C2283E321D77A3D00BD32DD /* GraftImplementationSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283E221D77A3D00BD32DD /* GraftImplementationSwiftTests.swift */; };
+		9C2283E421D77A3D00BD32DD /* GraftImplementationSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283E221D77A3D00BD32DD /* GraftImplementationSwiftTests.swift */; };
+		9C2283E521D77A3D00BD32DD /* GraftImplementationSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283E221D77A3D00BD32DD /* GraftImplementationSwiftTests.swift */; };
+		9C2283E721D77A4600BD32DD /* RemoveGraftedImplementationSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283E621D77A4600BD32DD /* RemoveGraftedImplementationSwiftTests.swift */; };
+		9C2283E821D77A4600BD32DD /* RemoveGraftedImplementationSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283E621D77A4600BD32DD /* RemoveGraftedImplementationSwiftTests.swift */; };
+		9C2283E921D77A4600BD32DD /* RemoveGraftedImplementationSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283E621D77A4600BD32DD /* RemoveGraftedImplementationSwiftTests.swift */; };
+		9C2283F621D794CF00BD32DD /* _ObjCGraftInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2283F421D794CF00BD32DD /* _ObjCGraftInfo.h */; };
+		9C2283F721D794CF00BD32DD /* _ObjCGraftInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2283F421D794CF00BD32DD /* _ObjCGraftInfo.h */; };
+		9C2283F821D794CF00BD32DD /* _ObjCGraftInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2283F421D794CF00BD32DD /* _ObjCGraftInfo.h */; };
+		9C2283F921D794CF00BD32DD /* _ObjCGraftInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2283F421D794CF00BD32DD /* _ObjCGraftInfo.h */; };
+		9C2283FA21D794CF00BD32DD /* _ObjCGraftInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283F521D794CF00BD32DD /* _ObjCGraftInfo.mm */; };
+		9C2283FB21D794CF00BD32DD /* _ObjCGraftInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283F521D794CF00BD32DD /* _ObjCGraftInfo.mm */; };
+		9C2283FC21D794CF00BD32DD /* _ObjCGraftInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283F521D794CF00BD32DD /* _ObjCGraftInfo.mm */; };
+		9C2283FD21D794CF00BD32DD /* _ObjCGraftInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283F521D794CF00BD32DD /* _ObjCGraftInfo.mm */; };
+		9C22840021D7965400BD32DD /* _ObjCGraftCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2283FE21D7965400BD32DD /* _ObjCGraftCenter.h */; };
+		9C22840121D7965400BD32DD /* _ObjCGraftCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2283FE21D7965400BD32DD /* _ObjCGraftCenter.h */; };
+		9C22840221D7965400BD32DD /* _ObjCGraftCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2283FE21D7965400BD32DD /* _ObjCGraftCenter.h */; };
+		9C22840321D7965400BD32DD /* _ObjCGraftCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2283FE21D7965400BD32DD /* _ObjCGraftCenter.h */; };
+		9C22840421D7965400BD32DD /* _ObjCGraftCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283FF21D7965400BD32DD /* _ObjCGraftCenter.mm */; };
+		9C22840521D7965400BD32DD /* _ObjCGraftCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283FF21D7965400BD32DD /* _ObjCGraftCenter.mm */; };
+		9C22840621D7965400BD32DD /* _ObjCGraftCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283FF21D7965400BD32DD /* _ObjCGraftCenter.mm */; };
+		9C22840721D7965400BD32DD /* _ObjCGraftCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283FF21D7965400BD32DD /* _ObjCGraftCenter.mm */; };
+		9C22840A21D797C400BD32DD /* _ObjCKeyValueObservationRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22840821D797C400BD32DD /* _ObjCKeyValueObservationRecord.h */; };
+		9C22840B21D797C400BD32DD /* _ObjCKeyValueObservationRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22840821D797C400BD32DD /* _ObjCKeyValueObservationRecord.h */; };
+		9C22840C21D797C400BD32DD /* _ObjCKeyValueObservationRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22840821D797C400BD32DD /* _ObjCKeyValueObservationRecord.h */; };
+		9C22840D21D797C400BD32DD /* _ObjCKeyValueObservationRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22840821D797C400BD32DD /* _ObjCKeyValueObservationRecord.h */; };
+		9C22840E21D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22840921D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm */; };
+		9C22840F21D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22840921D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm */; };
+		9C22841021D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22840921D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm */; };
+		9C22841121D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22840921D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm */; };
+		9C22841421D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22841221D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h */; };
+		9C22841521D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22841221D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h */; };
+		9C22841621D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22841221D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h */; };
+		9C22841721D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22841221D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h */; };
+		9C22841821D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22841321D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm */; };
+		9C22841921D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22841321D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm */; };
+		9C22841A21D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22841321D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm */; };
+		9C22841B21D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22841321D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm */; };
+		9C22841E21D7995200BD32DD /* NSObject+ObjCGrafting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22841C21D7995200BD32DD /* NSObject+ObjCGrafting.h */; };
+		9C22841F21D7995200BD32DD /* NSObject+ObjCGrafting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22841C21D7995200BD32DD /* NSObject+ObjCGrafting.h */; };
+		9C22842021D7995200BD32DD /* NSObject+ObjCGrafting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22841C21D7995200BD32DD /* NSObject+ObjCGrafting.h */; };
+		9C22842121D7995200BD32DD /* NSObject+ObjCGrafting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22841C21D7995200BD32DD /* NSObject+ObjCGrafting.h */; };
+		9C22842221D7995200BD32DD /* NSObject+ObjCGrafting.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22841D21D7995200BD32DD /* NSObject+ObjCGrafting.mm */; };
+		9C22842321D7995200BD32DD /* NSObject+ObjCGrafting.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22841D21D7995200BD32DD /* NSObject+ObjCGrafting.mm */; };
+		9C22842421D7995200BD32DD /* NSObject+ObjCGrafting.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22841D21D7995200BD32DD /* NSObject+ObjCGrafting.mm */; };
+		9C22842521D7995200BD32DD /* NSObject+ObjCGrafting.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22841D21D7995200BD32DD /* NSObject+ObjCGrafting.mm */; };
+		9C22842821D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22842621D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h */; };
+		9C22842921D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22842621D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h */; };
+		9C22842A21D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22842621D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h */; };
+		9C22842B21D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22842621D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h */; };
+		9C22842C21D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22842721D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.mm */; };
+		9C22842D21D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22842721D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.mm */; };
+		9C22842E21D7995C00BD32DD /* NSArray+_KVOSpecialTreatment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22842721D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.mm */; };
+		9C22842F21D7995C00BD32DD /* NSArray+_KVOSpecialTreatment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22842721D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.mm */; };
+		9C22843221D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22843021D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h */; };
+		9C22843321D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22843021D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h */; };
+		9C22843421D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22843021D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h */; };
+		9C22843521D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22843021D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h */; };
+		9C22843621D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22843121D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm */; };
+		9C22843721D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22843121D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm */; };
+		9C22843821D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22843121D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm */; };
+		9C22843921D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C22843121D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm */; };
+		9C22844621D7A8C000BD32DD /* ClassUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22844421D7A8C000BD32DD /* ClassUtilities.h */; };
+		9C22844721D7A8C000BD32DD /* ClassUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22844421D7A8C000BD32DD /* ClassUtilities.h */; };
+		9C22844821D7A8C000BD32DD /* ClassUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22844421D7A8C000BD32DD /* ClassUtilities.h */; };
+		9C22844921D7A8C000BD32DD /* ClassUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22844421D7A8C000BD32DD /* ClassUtilities.h */; };
+		9C22845421D7AC0000BD32DD /* _ObjCGrafted.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22845321D7AC0000BD32DD /* _ObjCGrafted.h */; };
+		9C22845521D7AC0000BD32DD /* _ObjCGrafted.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22845321D7AC0000BD32DD /* _ObjCGrafted.h */; };
+		9C22845621D7AC0000BD32DD /* _ObjCGrafted.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22845321D7AC0000BD32DD /* _ObjCGrafted.h */; };
+		9C22845721D7AC0000BD32DD /* _ObjCGrafted.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C22845321D7AC0000BD32DD /* _ObjCGrafted.h */; };
+		9C22846021D7B0D600BD32DD /* _ObjCGraftCombination.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2283EA21D7943A00BD32DD /* _ObjCGraftCombination.h */; };
+		9C22846121D7B0D600BD32DD /* _ObjCGraftCombination.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283EB21D7943A00BD32DD /* _ObjCGraftCombination.mm */; };
+		9C22846221D7B0D600BD32DD /* _ObjCGraftCombination.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2283EA21D7943A00BD32DD /* _ObjCGraftCombination.h */; };
+		9C22846321D7B0D600BD32DD /* _ObjCGraftCombination.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283EB21D7943A00BD32DD /* _ObjCGraftCombination.mm */; };
+		9C22846421D7B0D700BD32DD /* _ObjCGraftCombination.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2283EA21D7943A00BD32DD /* _ObjCGraftCombination.h */; };
+		9C22846521D7B0D700BD32DD /* _ObjCGraftCombination.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283EB21D7943A00BD32DD /* _ObjCGraftCombination.mm */; };
+		9C22846621D7B0D700BD32DD /* _ObjCGraftCombination.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2283EA21D7943A00BD32DD /* _ObjCGraftCombination.h */; };
+		9C22846721D7B0D700BD32DD /* _ObjCGraftCombination.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C2283EB21D7943A00BD32DD /* _ObjCGraftCombination.mm */; };
+		9CD235E721D75DCF0063809A /* ImplSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD235E621D75DCF0063809A /* ImplSource.m */; };
+		9CD235E821D75DCF0063809A /* ImplSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD235E621D75DCF0063809A /* ImplSource.m */; };
+		9CD235E921D75DCF0063809A /* ImplSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD235E621D75DCF0063809A /* ImplSource.m */; };
 		9CD2D9742177586F00FFD1A9 /* ObjCGrafting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD2D96A2177586F00FFD1A9 /* ObjCGrafting.framework */; };
 		9CD2D9902177587C00FFD1A9 /* ObjCGrafting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD2D9872177587C00FFD1A9 /* ObjCGrafting.framework */; };
 		9CD2D9B92177589000FFD1A9 /* ObjCGrafting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD2D9B02177589000FFD1A9 /* ObjCGrafting.framework */; };
-		9CD2D9D521775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9CF21775A4200FFD1A9 /* ObjCGraft+Internal.h */; };
-		9CD2D9D621775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9CF21775A4200FFD1A9 /* ObjCGraft+Internal.h */; };
-		9CD2D9D721775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9CF21775A4200FFD1A9 /* ObjCGraft+Internal.h */; };
-		9CD2D9D821775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9CF21775A4200FFD1A9 /* ObjCGraft+Internal.h */; };
+		9CD2D9D521775A4300FFD1A9 /* ObjCGraftCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9CF21775A4200FFD1A9 /* ObjCGraftCommon.h */; };
+		9CD2D9D621775A4300FFD1A9 /* ObjCGraftCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9CF21775A4200FFD1A9 /* ObjCGraftCommon.h */; };
+		9CD2D9D721775A4300FFD1A9 /* ObjCGraftCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9CF21775A4200FFD1A9 /* ObjCGraftCommon.h */; };
+		9CD2D9D821775A4300FFD1A9 /* ObjCGraftCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9CF21775A4200FFD1A9 /* ObjCGraftCommon.h */; };
 		9CD2D9D921775A4300FFD1A9 /* ObjCGraft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D021775A4200FFD1A9 /* ObjCGraft.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CD2D9DA21775A4300FFD1A9 /* ObjCGraft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D021775A4200FFD1A9 /* ObjCGraft.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CD2D9DB21775A4300FFD1A9 /* ObjCGraft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D021775A4200FFD1A9 /* ObjCGraft.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CD2D9DC21775A4300FFD1A9 /* ObjCGraft.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D021775A4200FFD1A9 /* ObjCGraft.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9CD2D9DD21775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D121775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h */; };
-		9CD2D9DE21775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D121775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h */; };
-		9CD2D9DF21775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D121775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h */; };
-		9CD2D9E021775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D121775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h */; };
-		9CD2D9E121775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D221775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		9CD2D9E221775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D221775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m */; };
-		9CD2D9E321775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D221775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m */; };
-		9CD2D9E421775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D221775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m */; };
+		9CD2D9DD21775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D121775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h */; };
+		9CD2D9DE21775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D121775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h */; };
+		9CD2D9DF21775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D121775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h */; };
+		9CD2D9E021775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2D9D121775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h */; };
+		9CD2D9E121775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D221775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9CD2D9E221775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D221775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9CD2D9E321775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D221775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9CD2D9E421775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D221775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9CD2D9E921775A4300FFD1A9 /* ObjCGraft.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D421775A4200FFD1A9 /* ObjCGraft.mm */; };
 		9CD2D9EA21775A4300FFD1A9 /* ObjCGraft.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D421775A4200FFD1A9 /* ObjCGraft.mm */; };
 		9CD2D9EB21775A4300FFD1A9 /* ObjCGraft.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2D9D421775A4200FFD1A9 /* ObjCGraft.mm */; };
@@ -33,9 +120,9 @@
 		9CD2DCE42177CE8800FFD1A9 /* ObjCGraftProtocolImplementationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE12177CE8700FFD1A9 /* ObjCGraftProtocolImplementationTest.swift */; };
 		9CD2DCE52177CE8800FFD1A9 /* ObjCGraftProtocolImplementationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE12177CE8700FFD1A9 /* ObjCGraftProtocolImplementationTest.swift */; };
 		9CD2DCE62177CE8800FFD1A9 /* ObjCGraftProtocolImplementationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE12177CE8700FFD1A9 /* ObjCGraftProtocolImplementationTest.swift */; };
-		9CD2DCE72177CE8800FFD1A9 /* GraftableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE22177CE8700FFD1A9 /* GraftableObject.m */; };
-		9CD2DCE82177CE8800FFD1A9 /* GraftableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE22177CE8700FFD1A9 /* GraftableObject.m */; };
-		9CD2DCE92177CE8800FFD1A9 /* GraftableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE22177CE8700FFD1A9 /* GraftableObject.m */; };
+		9CD2DCE72177CE8800FFD1A9 /* ManipulatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE22177CE8700FFD1A9 /* ManipulatedObject.m */; };
+		9CD2DCE82177CE8800FFD1A9 /* ManipulatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE22177CE8700FFD1A9 /* ManipulatedObject.m */; };
+		9CD2DCE92177CE8800FFD1A9 /* ManipulatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD2DCE22177CE8700FFD1A9 /* ManipulatedObject.m */; };
 		9CD2DCEC2177CF9600FFD1A9 /* ObjCGrafting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2DCEB2177CF9100FFD1A9 /* ObjCGrafting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CD2DCED2177CF9700FFD1A9 /* ObjCGrafting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2DCEB2177CF9100FFD1A9 /* ObjCGrafting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CD2DCEE2177CF9700FFD1A9 /* ObjCGrafting.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD2DCEB2177CF9100FFD1A9 /* ObjCGrafting.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -71,6 +158,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C2283DA21D77A0500BD32DD /* GraftImplementationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraftImplementationTests.m; sourceTree = "<group>"; };
+		9C2283DE21D77A1D00BD32DD /* RemoveGraftedImplementationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemoveGraftedImplementationTests.m; sourceTree = "<group>"; };
+		9C2283E221D77A3D00BD32DD /* GraftImplementationSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraftImplementationSwiftTests.swift; sourceTree = "<group>"; };
+		9C2283E621D77A4600BD32DD /* RemoveGraftedImplementationSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveGraftedImplementationSwiftTests.swift; sourceTree = "<group>"; };
+		9C2283EA21D7943A00BD32DD /* _ObjCGraftCombination.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _ObjCGraftCombination.h; sourceTree = "<group>"; };
+		9C2283EB21D7943A00BD32DD /* _ObjCGraftCombination.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = _ObjCGraftCombination.mm; sourceTree = "<group>"; };
+		9C2283F421D794CF00BD32DD /* _ObjCGraftInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _ObjCGraftInfo.h; sourceTree = "<group>"; };
+		9C2283F521D794CF00BD32DD /* _ObjCGraftInfo.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = _ObjCGraftInfo.mm; sourceTree = "<group>"; };
+		9C2283FE21D7965400BD32DD /* _ObjCGraftCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _ObjCGraftCenter.h; sourceTree = "<group>"; };
+		9C2283FF21D7965400BD32DD /* _ObjCGraftCenter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = _ObjCGraftCenter.mm; sourceTree = "<group>"; };
+		9C22840821D797C400BD32DD /* _ObjCKeyValueObservationRecord.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _ObjCKeyValueObservationRecord.h; sourceTree = "<group>"; };
+		9C22840921D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = _ObjCKeyValueObservationRecord.mm; sourceTree = "<group>"; };
+		9C22841221D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _ObjCKeyValueObservationRecordList.h; sourceTree = "<group>"; };
+		9C22841321D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = _ObjCKeyValueObservationRecordList.mm; sourceTree = "<group>"; };
+		9C22841C21D7995200BD32DD /* NSObject+ObjCGrafting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+ObjCGrafting.h"; sourceTree = "<group>"; };
+		9C22841D21D7995200BD32DD /* NSObject+ObjCGrafting.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSObject+ObjCGrafting.mm"; sourceTree = "<group>"; };
+		9C22842621D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+_KVOSpecialTreatment.h"; sourceTree = "<group>"; };
+		9C22842721D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSArray+_KVOSpecialTreatment.mm"; sourceTree = "<group>"; };
+		9C22843021D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+_KVOSpecialTreatment.h"; sourceTree = "<group>"; };
+		9C22843121D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSObject+_KVOSpecialTreatment.mm"; sourceTree = "<group>"; };
+		9C22844421D7A8C000BD32DD /* ClassUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassUtilities.h; sourceTree = "<group>"; };
+		9C22845321D7AC0000BD32DD /* _ObjCGrafted.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _ObjCGrafted.h; sourceTree = "<group>"; };
+		9CD235E321D75D900063809A /* Aspect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Aspect.h; sourceTree = "<group>"; };
+		9CD235E421D75D970063809A /* SubAspect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubAspect.h; sourceTree = "<group>"; };
+		9CD235E521D75DCF0063809A /* ImplSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImplSource.h; sourceTree = "<group>"; };
+		9CD235E621D75DCF0063809A /* ImplSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImplSource.m; sourceTree = "<group>"; };
 		9CD2D96A2177586F00FFD1A9 /* ObjCGrafting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCGrafting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD2D9732177586F00FFD1A9 /* ObjCGrafting-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObjCGrafting-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD2D9872177587C00FFD1A9 /* ObjCGrafting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCGrafting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,10 +193,10 @@
 		9CD2D9B82177589000FFD1A9 /* ObjCGrafting-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ObjCGrafting-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD2D9C8217758DC00FFD1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CD2D9CB217758DC00FFD1A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9CD2D9CF21775A4200FFD1A9 /* ObjCGraft+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjCGraft+Internal.h"; sourceTree = "<group>"; };
+		9CD2D9CF21775A4200FFD1A9 /* ObjCGraftCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCGraftCommon.h; sourceTree = "<group>"; };
 		9CD2D9D021775A4200FFD1A9 /* ObjCGraft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCGraft.h; sourceTree = "<group>"; };
-		9CD2D9D121775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCGraftedObjectBackwardInstanceImpl.h; sourceTree = "<group>"; };
-		9CD2D9D221775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCGraftedObjectBackwardInstanceImpl.m; sourceTree = "<group>"; };
+		9CD2D9D121775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ObjCCompositedClassBackwardInstanceImpl.h; sourceTree = "<group>"; };
+		9CD2D9D221775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ObjCCompositedClassBackwardInstanceImpl.m; sourceTree = "<group>"; };
 		9CD2D9D321775A4200FFD1A9 /* ObjCGraftImplementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjCGraftImplementation.swift; sourceTree = "<group>"; };
 		9CD2D9D421775A4200FFD1A9 /* ObjCGraft.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ObjCGraft.mm; sourceTree = "<group>"; };
 		9CD2DCD92177AE5300FFD1A9 /* CocoaWax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CocoaWax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,8 +204,8 @@
 		9CD2DCDD2177AE5C00FFD1A9 /* CocoaWax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CocoaWax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD2DCDF2177AE6200FFD1A9 /* CocoaWax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CocoaWax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD2DCE12177CE8700FFD1A9 /* ObjCGraftProtocolImplementationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjCGraftProtocolImplementationTest.swift; sourceTree = "<group>"; };
-		9CD2DCE22177CE8700FFD1A9 /* GraftableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraftableObject.m; sourceTree = "<group>"; };
-		9CD2DCE32177CE8800FFD1A9 /* GraftableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraftableObject.h; sourceTree = "<group>"; };
+		9CD2DCE22177CE8700FFD1A9 /* ManipulatedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManipulatedObject.m; sourceTree = "<group>"; };
+		9CD2DCE32177CE8800FFD1A9 /* ManipulatedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManipulatedObject.h; sourceTree = "<group>"; };
 		9CD2DCEA2177CF2A00FFD1A9 /* ObjCGraftingTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjCGraftingTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		9CD2DCEB2177CF9100FFD1A9 /* ObjCGrafting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCGrafting.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +266,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C22846821D7D42000BD32DD /* ObjCGraft */ = {
+			isa = PBXGroup;
+			children = (
+				9C22846E21D7DCA200BD32DD /* TestAuxiliaries */,
+				9C2283DA21D77A0500BD32DD /* GraftImplementationTests.m */,
+				9C2283DE21D77A1D00BD32DD /* RemoveGraftedImplementationTests.m */,
+				9C2283E221D77A3D00BD32DD /* GraftImplementationSwiftTests.swift */,
+				9C2283E621D77A4600BD32DD /* RemoveGraftedImplementationSwiftTests.swift */,
+			);
+			path = ObjCGraft;
+			sourceTree = "<group>";
+		};
+		9C22846E21D7DCA200BD32DD /* TestAuxiliaries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TestAuxiliaries;
+			sourceTree = "<group>";
+		};
+		9CD235EA21D75E320063809A /* TestAuxiliaries */ = {
+			isa = PBXGroup;
+			children = (
+				9CD235E321D75D900063809A /* Aspect.h */,
+				9CD235E421D75D970063809A /* SubAspect.h */,
+				9CD2DCE32177CE8800FFD1A9 /* ManipulatedObject.h */,
+				9CD2DCE22177CE8700FFD1A9 /* ManipulatedObject.m */,
+				9CD235E521D75DCF0063809A /* ImplSource.h */,
+				9CD235E621D75DCF0063809A /* ImplSource.m */,
+			);
+			path = TestAuxiliaries;
+			sourceTree = "<group>";
+		};
 		9CD2D95E2177584600FFD1A9 = {
 			isa = PBXGroup;
 			children = (
@@ -182,9 +327,27 @@
 			children = (
 				9CD2D9D021775A4200FFD1A9 /* ObjCGraft.h */,
 				9CD2D9D421775A4200FFD1A9 /* ObjCGraft.mm */,
-				9CD2D9CF21775A4200FFD1A9 /* ObjCGraft+Internal.h */,
-				9CD2D9D121775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h */,
-				9CD2D9D221775A4200FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m */,
+				9C2283EA21D7943A00BD32DD /* _ObjCGraftCombination.h */,
+				9C2283EB21D7943A00BD32DD /* _ObjCGraftCombination.mm */,
+				9C2283F421D794CF00BD32DD /* _ObjCGraftInfo.h */,
+				9C2283F521D794CF00BD32DD /* _ObjCGraftInfo.mm */,
+				9C2283FE21D7965400BD32DD /* _ObjCGraftCenter.h */,
+				9C2283FF21D7965400BD32DD /* _ObjCGraftCenter.mm */,
+				9C22845321D7AC0000BD32DD /* _ObjCGrafted.h */,
+				9C22840821D797C400BD32DD /* _ObjCKeyValueObservationRecord.h */,
+				9C22840921D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm */,
+				9C22841221D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h */,
+				9C22841321D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm */,
+				9C22841C21D7995200BD32DD /* NSObject+ObjCGrafting.h */,
+				9C22841D21D7995200BD32DD /* NSObject+ObjCGrafting.mm */,
+				9C22843021D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h */,
+				9C22843121D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm */,
+				9C22842621D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h */,
+				9C22842721D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.mm */,
+				9CD2D9D121775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h */,
+				9CD2D9D221775A4200FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m */,
+				9CD2D9CF21775A4200FFD1A9 /* ObjCGraftCommon.h */,
+				9C22844421D7A8C000BD32DD /* ClassUtilities.h */,
 				9CD2D9D321775A4200FFD1A9 /* ObjCGraftImplementation.swift */,
 				9CD2D9CE217758F400FFD1A9 /* Supporting Files */,
 			);
@@ -195,8 +358,8 @@
 			isa = PBXGroup;
 			children = (
 				9CD2DCE12177CE8700FFD1A9 /* ObjCGraftProtocolImplementationTest.swift */,
-				9CD2DCE32177CE8800FFD1A9 /* GraftableObject.h */,
-				9CD2DCE22177CE8700FFD1A9 /* GraftableObject.m */,
+				9CD235EA21D75E320063809A /* TestAuxiliaries */,
+				9C22846821D7D42000BD32DD /* ObjCGraft */,
 				9CD2D9CD217758EB00FFD1A9 /* Supporting Files */,
 			);
 			path = ObjCGraftingTests;
@@ -238,10 +401,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C22840A21D797C400BD32DD /* _ObjCKeyValueObservationRecord.h in Headers */,
 				9CD2DCEF2177CF9800FFD1A9 /* ObjCGrafting.h in Headers */,
-				9CD2D9D521775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */,
+				9C22841421D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h in Headers */,
+				9C22840021D7965400BD32DD /* _ObjCGraftCenter.h in Headers */,
+				9CD2D9D521775A4300FFD1A9 /* ObjCGraftCommon.h in Headers */,
 				9CD2D9D921775A4300FFD1A9 /* ObjCGraft.h in Headers */,
-				9CD2D9DD21775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */,
+				9CD2D9DD21775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h in Headers */,
+				9C22844621D7A8C000BD32DD /* ClassUtilities.h in Headers */,
+				9C22843221D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h in Headers */,
+				9C22846021D7B0D600BD32DD /* _ObjCGraftCombination.h in Headers */,
+				9C22841E21D7995200BD32DD /* NSObject+ObjCGrafting.h in Headers */,
+				9C2283F621D794CF00BD32DD /* _ObjCGraftInfo.h in Headers */,
+				9C22845421D7AC0000BD32DD /* _ObjCGrafted.h in Headers */,
+				9C22842821D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,10 +422,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C22840B21D797C400BD32DD /* _ObjCKeyValueObservationRecord.h in Headers */,
 				9CD2DCEE2177CF9700FFD1A9 /* ObjCGrafting.h in Headers */,
-				9CD2D9D621775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */,
+				9C22841521D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h in Headers */,
+				9C22840121D7965400BD32DD /* _ObjCGraftCenter.h in Headers */,
+				9CD2D9D621775A4300FFD1A9 /* ObjCGraftCommon.h in Headers */,
 				9CD2D9DA21775A4300FFD1A9 /* ObjCGraft.h in Headers */,
-				9CD2D9DE21775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */,
+				9CD2D9DE21775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h in Headers */,
+				9C22844721D7A8C000BD32DD /* ClassUtilities.h in Headers */,
+				9C22843321D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h in Headers */,
+				9C22846221D7B0D600BD32DD /* _ObjCGraftCombination.h in Headers */,
+				9C22841F21D7995200BD32DD /* NSObject+ObjCGrafting.h in Headers */,
+				9C2283F721D794CF00BD32DD /* _ObjCGraftInfo.h in Headers */,
+				9C22845521D7AC0000BD32DD /* _ObjCGrafted.h in Headers */,
+				9C22842921D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,10 +443,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C22840C21D797C400BD32DD /* _ObjCKeyValueObservationRecord.h in Headers */,
 				9CD2DCED2177CF9700FFD1A9 /* ObjCGrafting.h in Headers */,
-				9CD2D9D721775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */,
+				9C22841621D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h in Headers */,
+				9C22840221D7965400BD32DD /* _ObjCGraftCenter.h in Headers */,
+				9CD2D9D721775A4300FFD1A9 /* ObjCGraftCommon.h in Headers */,
 				9CD2D9DB21775A4300FFD1A9 /* ObjCGraft.h in Headers */,
-				9CD2D9DF21775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */,
+				9CD2D9DF21775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h in Headers */,
+				9C22844821D7A8C000BD32DD /* ClassUtilities.h in Headers */,
+				9C22843421D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h in Headers */,
+				9C22846421D7B0D700BD32DD /* _ObjCGraftCombination.h in Headers */,
+				9C22842021D7995200BD32DD /* NSObject+ObjCGrafting.h in Headers */,
+				9C2283F821D794CF00BD32DD /* _ObjCGraftInfo.h in Headers */,
+				9C22845621D7AC0000BD32DD /* _ObjCGrafted.h in Headers */,
+				9C22842A21D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,10 +464,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C22840D21D797C400BD32DD /* _ObjCKeyValueObservationRecord.h in Headers */,
 				9CD2DCEC2177CF9600FFD1A9 /* ObjCGrafting.h in Headers */,
-				9CD2D9D821775A4300FFD1A9 /* ObjCGraft+Internal.h in Headers */,
+				9C22841721D797F300BD32DD /* _ObjCKeyValueObservationRecordList.h in Headers */,
+				9C22840321D7965400BD32DD /* _ObjCGraftCenter.h in Headers */,
+				9CD2D9D821775A4300FFD1A9 /* ObjCGraftCommon.h in Headers */,
 				9CD2D9DC21775A4300FFD1A9 /* ObjCGraft.h in Headers */,
-				9CD2D9E021775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.h in Headers */,
+				9CD2D9E021775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.h in Headers */,
+				9C22844921D7A8C000BD32DD /* ClassUtilities.h in Headers */,
+				9C22843521D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.h in Headers */,
+				9C22846621D7B0D700BD32DD /* _ObjCGraftCombination.h in Headers */,
+				9C22842121D7995200BD32DD /* NSObject+ObjCGrafting.h in Headers */,
+				9C2283F921D794CF00BD32DD /* _ObjCGraftInfo.h in Headers */,
+				9C22845721D7AC0000BD32DD /* _ObjCGrafted.h in Headers */,
+				9C22842B21D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,8 +729,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C2283FA21D794CF00BD32DD /* _ObjCGraftInfo.mm in Sources */,
+				9C22841821D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm in Sources */,
 				9CD2DCF02177CFC500FFD1A9 /* ObjCGraftImplementation.swift in Sources */,
-				9CD2D9E121775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */,
+				9C22840E21D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm in Sources */,
+				9C22842C21D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.mm in Sources */,
+				9CD2D9E121775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m in Sources */,
+				9C22842221D7995200BD32DD /* NSObject+ObjCGrafting.mm in Sources */,
+				9C22840421D7965400BD32DD /* _ObjCGraftCenter.mm in Sources */,
+				9C22846121D7B0D600BD32DD /* _ObjCGraftCombination.mm in Sources */,
+				9C22843621D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm in Sources */,
 				9CD2D9E921775A4300FFD1A9 /* ObjCGraft.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,7 +747,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CD2DCE72177CE8800FFD1A9 /* GraftableObject.m in Sources */,
+				9CD235E721D75DCF0063809A /* ImplSource.m in Sources */,
+				9CD2DCE72177CE8800FFD1A9 /* ManipulatedObject.m in Sources */,
+				9C2283DB21D77A0500BD32DD /* GraftImplementationTests.m in Sources */,
+				9C2283DF21D77A1D00BD32DD /* RemoveGraftedImplementationTests.m in Sources */,
+				9C2283E321D77A3D00BD32DD /* GraftImplementationSwiftTests.swift in Sources */,
+				9C2283E721D77A4600BD32DD /* RemoveGraftedImplementationSwiftTests.swift in Sources */,
 				9CD2DCE42177CE8800FFD1A9 /* ObjCGraftProtocolImplementationTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,8 +761,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C2283FB21D794CF00BD32DD /* _ObjCGraftInfo.mm in Sources */,
+				9C22841921D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm in Sources */,
 				9CD2DCF12177CFC600FFD1A9 /* ObjCGraftImplementation.swift in Sources */,
-				9CD2D9E221775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */,
+				9C22840F21D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm in Sources */,
+				9C22842D21D7995B00BD32DD /* NSArray+_KVOSpecialTreatment.mm in Sources */,
+				9CD2D9E221775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m in Sources */,
+				9C22842321D7995200BD32DD /* NSObject+ObjCGrafting.mm in Sources */,
+				9C22840521D7965400BD32DD /* _ObjCGraftCenter.mm in Sources */,
+				9C22846321D7B0D600BD32DD /* _ObjCGraftCombination.mm in Sources */,
+				9C22843721D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm in Sources */,
 				9CD2D9EA21775A4300FFD1A9 /* ObjCGraft.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,7 +779,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CD2DCE82177CE8800FFD1A9 /* GraftableObject.m in Sources */,
+				9CD235E821D75DCF0063809A /* ImplSource.m in Sources */,
+				9CD2DCE82177CE8800FFD1A9 /* ManipulatedObject.m in Sources */,
+				9C2283DC21D77A0500BD32DD /* GraftImplementationTests.m in Sources */,
+				9C2283E021D77A1D00BD32DD /* RemoveGraftedImplementationTests.m in Sources */,
+				9C2283E421D77A3D00BD32DD /* GraftImplementationSwiftTests.swift in Sources */,
+				9C2283E821D77A4600BD32DD /* RemoveGraftedImplementationSwiftTests.swift in Sources */,
 				9CD2DCE52177CE8800FFD1A9 /* ObjCGraftProtocolImplementationTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,8 +793,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C2283FC21D794CF00BD32DD /* _ObjCGraftInfo.mm in Sources */,
+				9C22841A21D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm in Sources */,
 				9CD2DCF22177CFC600FFD1A9 /* ObjCGraftImplementation.swift in Sources */,
-				9CD2D9E321775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */,
+				9C22841021D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm in Sources */,
+				9C22842E21D7995C00BD32DD /* NSArray+_KVOSpecialTreatment.mm in Sources */,
+				9CD2D9E321775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m in Sources */,
+				9C22842421D7995200BD32DD /* NSObject+ObjCGrafting.mm in Sources */,
+				9C22840621D7965400BD32DD /* _ObjCGraftCenter.mm in Sources */,
+				9C22846521D7B0D700BD32DD /* _ObjCGraftCombination.mm in Sources */,
+				9C22843821D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm in Sources */,
 				9CD2D9EB21775A4300FFD1A9 /* ObjCGraft.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,8 +811,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C2283FD21D794CF00BD32DD /* _ObjCGraftInfo.mm in Sources */,
+				9C22841B21D797F300BD32DD /* _ObjCKeyValueObservationRecordList.mm in Sources */,
 				9CD2DCF32177CFC700FFD1A9 /* ObjCGraftImplementation.swift in Sources */,
-				9CD2D9E421775A4300FFD1A9 /* ObjCGraftedObjectBackwardInstanceImpl.m in Sources */,
+				9C22841121D797C400BD32DD /* _ObjCKeyValueObservationRecord.mm in Sources */,
+				9C22842F21D7995C00BD32DD /* NSArray+_KVOSpecialTreatment.mm in Sources */,
+				9CD2D9E421775A4300FFD1A9 /* _ObjCCompositedClassBackwardInstanceImpl.m in Sources */,
+				9C22842521D7995200BD32DD /* NSObject+ObjCGrafting.mm in Sources */,
+				9C22840721D7965400BD32DD /* _ObjCGraftCenter.mm in Sources */,
+				9C22846721D7B0D700BD32DD /* _ObjCGraftCombination.mm in Sources */,
+				9C22843921D79B3A00BD32DD /* NSObject+_KVOSpecialTreatment.mm in Sources */,
 				9CD2D9EC21775A4300FFD1A9 /* ObjCGraft.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,7 +829,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CD2DCE92177CE8800FFD1A9 /* GraftableObject.m in Sources */,
+				9CD235E921D75DCF0063809A /* ImplSource.m in Sources */,
+				9CD2DCE92177CE8800FFD1A9 /* ManipulatedObject.m in Sources */,
+				9C2283DD21D77A0500BD32DD /* GraftImplementationTests.m in Sources */,
+				9C2283E121D77A1D00BD32DD /* RemoveGraftedImplementationTests.m in Sources */,
+				9C2283E521D77A3D00BD32DD /* GraftImplementationSwiftTests.swift in Sources */,
+				9C2283E921D77A4600BD32DD /* RemoveGraftedImplementationSwiftTests.swift in Sources */,
 				9CD2DCE62177CE8800FFD1A9 /* ObjCGraftProtocolImplementationTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,12 +863,20 @@
 		9CD2D9632177584600FFD1A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
 		9CD2D9642177584600FFD1A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -688,7 +946,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -764,7 +1021,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-macOS";
@@ -839,7 +1095,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -907,7 +1162,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-macOSTests";
@@ -979,7 +1233,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "ObjCGrafting/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1054,7 +1307,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "ObjCGrafting/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1130,7 +1382,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "ObjCGraftingTests/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1198,7 +1449,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "ObjCGraftingTests/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1296,7 +1546,6 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Debug;
 		};
@@ -1372,7 +1621,6 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Release;
 		};
@@ -1442,7 +1690,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1518,7 +1765,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-tvOS";
@@ -1593,7 +1839,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1661,7 +1906,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.WeZZard.ObjCGrafting-tvOSTests";

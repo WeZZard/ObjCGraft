@@ -6,4 +6,7 @@
 //
 //
 
-#import "GraftableObject.h"
+#import "Aspect.h"
+#import "SubAspect.h"
+#import "ManipulatedObject.h"
+#import "ImplSource.h"

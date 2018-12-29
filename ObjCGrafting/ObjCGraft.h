@@ -8,20 +8,223 @@
 
 #import <Foundation/Foundation.h>
 
+
+/// Objective-C Grafting
+/// ====================
+/// Objective-C Grafting is a set of tool to graft implementation of a
+/// protocol on a class to a specific object.
+///
+/// How it Works
+/// ============
+/// The key of Objective-C Grafting is a technology called is-a swizzle,
+/// which achieved by function: `object_setClass`.
+///
+/// Possible Class Hierarchy for Input Object
+/// =========================================
+///
+/// 1. First one is an object didn't adopt any is-a swizzle technologies.
+/// ```
+/// Root Class:                 NSObject
+///                                ^
+///                                |
+///                               ...
+///                                ^
+///                                |
+/// Topmost/Semantic Class:       Foo
+/// ```
+///
+/// 2. Second one is an object adopted considered is-a swizzle technologies(
+/// Currently KVO only).
+/// ```
+/// Root Class:                 NSObject
+///                                ^
+///                                |
+///                               ...
+///                                ^
+///                                |
+/// Semantic Class:               Foo
+///                                ^
+///                                |
+/// Topmost Class:         NSKVONotifying_Foo
+/// ```
+///
+/// 3. Third one is the output produced with first input.
+/// ```
+/// Root Class:                 NSObject
+///                                ^
+///                                |
+///                               ...
+///                                ^
+///                                |
+/// Semantic Class:               Foo
+///                                ^
+///                                |
+/// Topmost/Composited Class:  _OjbCGrafted_Foo_GraftedProtocol->SourceClass
+///
+/// 4. Fourth one is the output produced with second input.
+/// ```
+/// Root Class:                 NSObject
+///                                ^
+///                                |
+///                               ...
+///                                ^
+///                                |
+/// Semantic Class:               Foo
+///                                ^
+///                                |
+/// Composited Class:  _OjbCGrafted_Foo_GraftedProtocol->SourceClass
+///                                ^
+///                                |
+/// Topmost Class:         NSKVONotifying_Foo
+/// ```
+///
+/// Possible Class Hierarchy for Grafted Object
+/// ===========================================
+///
+/// 1. Respect to the first case of input object.
+/// ```
+/// Root Class:                 NSObject
+///                                ^
+///                                |
+///                               ...
+///                                ^
+///                                |
+/// Semantic Class:               Foo
+///                                ^
+///                                |
+/// Topmost/Composited Class:  _OjbCGrafted_Foo_GraftedProtocol->SourceClass
+/// ```
+///
+/// 2. Respect to the second case of input object.
+/// ```
+/// Root Class:                 NSObject
+///                                ^
+///                                |
+///                               ...
+///                                ^
+///                                |
+/// Semantic Class:               Foo
+///                                ^
+///                                |
+/// Composited Class:  _OjbCGrafted_Foo_GraftedProtocol->SourceClass
+///                                ^
+///                                |
+/// Topmost Class:          NSKVONotifying_Foo
+/// ```
+
 NS_ASSUME_NONNULL_BEGIN
 
-FOUNDATION_EXTERN id object_graftProtocol(id object, Protocol * protocol, Class sourceClass) NS_REFINED_FOR_SWIFT;
+#pragma mark Grafting Implementation
 
-FOUNDATION_EXTERN id object_graftProtocols(id object, Protocol * _Nonnull *  _Nonnull protocols, __unsafe_unretained Class _Nonnull * _Nonnull sourceClasses, unsigned int count) NS_REFINED_FOR_SWIFT;
+/**
+ Grafts the implementation of a protocol from a class to an object.
 
-FOUNDATION_EXTERN id object_graftProtocolsWithNilTermination(id object, Protocol * firstProtocol, Class firstSourceClass, ...) NS_REQUIRES_NIL_TERMINATION NS_REFINED_FOR_SWIFT;
+ @param object The object to graft the implementation to.
+ 
+ @param protocol The protocol defines the implementation to be grafted
+   with.
+ 
+ @param sourceClass The class contains the implementation to be grafted
+   from.
+ 
+ @return The grafted object. The same to the input `object`.
+ */
+FOUNDATION_EXTERN id object_graftImplementationOfProtocol(id object, Protocol * protocol, Class sourceClass) NS_REFINED_FOR_SWIFT;
 
-FOUNDATION_EXTERN id object_ungraftProtocol(id object, Protocol * protocol) NS_REFINED_FOR_SWIFT;
 
-FOUNDATION_EXTERN id object_ungraftProtocols(id object, Protocol * _Nonnull *  _Nonnull protocols, unsigned int count) NS_REFINED_FOR_SWIFT;
+/**
+ Grafts the implementation of the protocols from the classes to an object.
+ 
+ @param object The object to graft the implementation to.
+ 
+ @param protocols An array of protocols which define the implementations
+   to be grafted with.
+ 
+ @param sourceClasses An array of classes which contain the
+   implementations to be grafted from.
+ 
+ @return The grafted object. The same to the input `object`.
+ */
+FOUNDATION_EXTERN id object_graftImplementationsOfProtocols(id object, Protocol * _Nonnull *  _Nonnull protocols, __unsafe_unretained Class _Nonnull * _Nonnull sourceClasses, unsigned int count) NS_REFINED_FOR_SWIFT;
 
-FOUNDATION_EXTERN id object_ungraftProtocolsWithNilTermination(id object, Protocol * firstProtocol, ...) NS_REQUIRES_NIL_TERMINATION NS_REFINED_FOR_SWIFT;
 
-FOUNDATION_EXTERN id object_ungraftAllProtocols(id object) NS_REFINED_FOR_SWIFT;
+/**
+ Grafts the implementation of the protocols from the classes to an object.
+ 
+ @note The protocols and classes are offered in a nil terminated
+   protocol-class paired argument list.
+ 
+ @param object The object to graft the implementation to.
+ 
+ @param firstProtocol The first protocol defines the implementations to be
+   grafted with.
+ 
+ @param firstSourceClass The first class contains the implementations to
+   be grafted from.
+ 
+ @return The grafted object. The same to the input `object`.
+ */
+FOUNDATION_EXTERN id object_graftImplementationsOfProtocols_nilTerminated(id object, Protocol * firstProtocol, Class firstSourceClass, ...) NS_REQUIRES_NIL_TERMINATION NS_REFINED_FOR_SWIFT;
+
+#pragma mark Removing Grafted Implementation
+
+/**
+ Removes the grafted implementation of a protocol from an object.
+ 
+ @param object The object whose grafted implementations to be removed
+   from.
+ 
+ @param protocol The protocol defines the implementation to be removed
+   with.
+ 
+ @return The object with its grafted implementation removed. The same to
+   the input `object`.
+ */
+FOUNDATION_EXTERN id object_removeGraftedImplementationOfProtocol(id object, Protocol * protocol) NS_REFINED_FOR_SWIFT;
+
+
+/**
+ Removes the grafted implementations of the protocols from an object.
+ 
+ @param object The object whose grafted implementations to be removed
+   from.
+ 
+ @param protocols The protocols which define the implementations to be
+   removed with.
+ 
+ @return The object with its grafted implementations removed. The same to
+   the input `object`.
+ */
+FOUNDATION_EXTERN id object_removeGraftedImplementationsOfProtocols(id object, Protocol * _Nonnull *  _Nonnull protocols, unsigned int count) NS_REFINED_FOR_SWIFT;
+
+
+/**
+ Removes the grafted implementations of the protocols from an object.
+ 
+ @note The protocols are offered in a nil terminated argument list.
+ 
+ @param object The object whose grafted implementations to be removed
+   from.
+ 
+ @param firstProtocol The first protocol defines the implementations to be
+   removed with.
+ 
+ @return The object with its grafted implementations removed. The same to
+   the input `object`.
+ */
+FOUNDATION_EXTERN id object_removeGraftedImplementationsOfProtocols_nilTerminated(id object, Protocol * firstProtocol, ...) NS_REQUIRES_NIL_TERMINATION NS_REFINED_FOR_SWIFT;
+
+
+/**
+ Removes all the grafted implementations from an object.
+ 
+ 
+ @param object The object whose grafted implementations to be removed
+   from.
+ 
+ @return The object with its grafted implementations removed. The same to
+   the input `object`.
+ */
+FOUNDATION_EXTERN id object_removeAllGraftedImplementations(id object) NS_REFINED_FOR_SWIFT;
 
 NS_ASSUME_NONNULL_END
