@@ -12,20 +12,14 @@
 #import <pthread/pthread.h>
 
 #include <memory>
-#include <unordered_set>
-#include <unordered_map>
 
 #import "ObjCGraftCommon.h"
 #import "_ObjCGraftCombination.h"
 #import "_ObjCGraftInfo.h"
+#import "_ObjCCompositedClass.h"
 #import "_ObjCKeyValueObservationRecordList.h"
-#import "_ObjCCompositedClassBackwardInstanceImpl.h"
 
 namespace objcgrafting {
-    typedef std::list<Protocol * __unsafe_unretained> _ObjCProtocolList;
-    typedef std::unordered_set<Protocol * __unsafe_unretained, _ObjCProtocolHasher> _ObjCProtocolUnorderedSet;
-    typedef std::unordered_map<Protocol * __unsafe_unretained, std::unique_ptr<_ObjCProtocolList>, _ObjCProtocolHasher> _ObjCProtocolGraph;
-    
     class _ObjCGraftCenter {
 #pragma mark Accessing Shared Instance
     public:
@@ -33,7 +27,8 @@ namespace objcgrafting {
         
 #pragma mark Managing Object's Implementation Grafting
     public:
-        id graftImplementationOfProtocolsFromClassesToObject(id object, Protocol * __unsafe_unretained *  protocols, __unsafe_unretained Class * source_classes, unsigned int count);
+        std::unique_ptr<_ObjCGraftRequestVector> makeGraftRequests(Protocol * __unsafe_unretained * protocols, Class * source_classes, unsigned int count);
+        id graftImplementationOfProtocolsFromClassesToObject(id object, _ObjCGraftRequestVector& requests);
         id removeGraftedImplementationsOfProtocolsFromObject(id object, Protocol * __unsafe_unretained * protocols, unsigned int count);
         id removeGraftedImplementationsFromObject(id object);
     private:
@@ -49,7 +44,7 @@ namespace objcgrafting {
     public:
         bool objectHasGraftInfo(id object);
         _ObjCGraftInfo& objectGetGraftInfo(id object);
-        IMP objectGetBackwardInstanceImpl(id object, _ObjCCompositedClassBackwardInstanceImplKind kind);
+        IMP objectGetBackwardInstanceImpl(id object, _ObjCCompositedClass::BackwardInstanceImplKind kind);
         _ObjCKeyValueObservationRecordList * objectGetKeyValueObservationRecords(id object);
     private:
         void _objectAddGraftInfo(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map);
@@ -80,6 +75,9 @@ namespace objcgrafting {
     private:
         bool object_kvo_action_delegation_disabled_;
         
+#pragma mark Resolving Composited Class
+        Class resolveCompositedClass(id object, _ObjCGraftRecordMap& graft_record_map);
+        
 #pragma mark Managing Lock
     public:
         void lock();
@@ -88,24 +86,9 @@ namespace objcgrafting {
         void _initLock();
         void _destroyLock();
         
-#pragma mark Resolving Compositions
-    private:
-        Class _resolveCompositedClass(id object, _ObjCGraftRecordMap& graft_record_map);
-        NSString * _graftedProtocolIdentifier(_ObjCGraftRecordMap& graft_record_map);
-        std::unique_ptr<_ObjCProtocolUnorderedSet> _resolveNetTopmostGraftedProtocols(_ObjCGraftRecordMap& graft_record_map);
-        std::unique_ptr<_ObjCGraftCombinationList> _resolveGraftCombinationList(_ObjCGraftRecordMap& graft_record_map);
-        
-#pragma mark Accessing Elements in Registered Protocol Graph
-        _ObjCProtocolGraph& _registeredProtocolGraph();
-        bool _isProtocolRegistered(Protocol * __unsafe_unretained protocol);
-        _ObjCProtocolList& _conformedProtocolsForRegisteredProtocol(Protocol * __unsafe_unretained protocol);
-        void _registerConformedProtocolsForProtocol(Protocol * __unsafe_unretained protocol, _ObjCProtocolList& protocol_list);
-        
 #pragma mark Instance Variables
         pthread_mutex_t lock_;
         pthread_t lock_owner_;
-        
-        std::unique_ptr<_ObjCProtocolGraph> registered_protocol_graph_;
         
         std::unique_ptr<_ObjCGraftInfoMap> graft_info_map_;
         std::unique_ptr<_ObjCKeyValueObservationRecordsMap> key_value_observation_records_map_;
@@ -113,7 +96,6 @@ namespace objcgrafting {
 #pragma mark Managing Life-Cycle
     protected:
         _ObjCGraftCenter() {
-            registered_protocol_graph_ = std::make_unique<_ObjCProtocolGraph>();
             graft_info_map_ =  std::make_unique<_ObjCGraftInfoMap>();
             key_value_observation_records_map_ = std::make_unique<_ObjCKeyValueObservationRecordsMap>();
             object_kvo_action_delegation_disabled_ = false;

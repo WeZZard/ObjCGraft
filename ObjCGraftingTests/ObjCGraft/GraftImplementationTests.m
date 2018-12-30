@@ -29,12 +29,12 @@
     XCTAssertEqual(objectClass, [NSObject class]);
     XCTAssertNotEqual(objectClass, [NSArray class]);
     
-    id retVal = object_graftImplementationOfProtocol(object, @protocol(NSObject), [NSArray class]);
+    id retVal = object_graftImplementationOfProtocol(object, @protocol(NSObject), [NSProxy class]);
     
     Class retValClass = object_getClass(retVal);
     NSString * retValClassName = NSStringFromClass(retValClass);
     
-    XCTAssertNotEqual(retValClass, [NSObject class]);
+    XCTAssertNotEqual(retValClass, [NSProxy class]);
     XCTAssertNotEqual(retValClass, [NSArray class]);
     XCTAssert([retValClassName hasPrefix: @"_ObjCGrafted_"]);
 }
@@ -57,6 +57,17 @@
     id retVal = object_graftImplementationOfProtocol(object, @protocol(NSObject), [NSProxy class]);
     
     XCTAssert([retVal isProxy]);
+}
+
+- (void)testObject_graftImplementationOfProtocol_returnsObjectOfNothingChanged_whenTheClassDoeNotConformToProtocolButItsSuperclassDoes
+{
+    NSObject * object = [[NSObject alloc] init];
+    
+    id retVal = object_graftImplementationOfProtocol(object, @protocol(NSObject), [NSArray class]);
+    
+    Class retValClass = object_getClass(retVal);
+    
+    XCTAssertEqual(retValClass, [NSObject class]);
 }
 
 - (void)testObject_graftImplementationOfProtocol_returnsObjectOfNothingChanged_whenTheClassIsNotConformToProtocol

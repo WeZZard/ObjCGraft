@@ -10,11 +10,11 @@
 
 #import <Foundation/Foundation.h>
 
-typedef Class NSObjectClass (NSObject *, SEL);
+typedef Class NSObjectGetClass (NSObject *, SEL);
 
 typedef void NSObjectDealloc (NSObject * __unsafe_unretained, SEL);
 
-FOUNDATION_EXTERN NSObjectClass _NSObjectClass;
+FOUNDATION_EXTERN NSObjectGetClass _NSObjectGetClass;
 FOUNDATION_EXTERN NSObjectDealloc _NSObjectDealloc;
 FOUNDATION_EXTERN NSObjectDealloc _NSObjectSuperDealloc;
 

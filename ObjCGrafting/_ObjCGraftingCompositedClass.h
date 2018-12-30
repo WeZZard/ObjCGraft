@@ -1,5 +1,5 @@
 //
-//  _ObjCGrafted.h
+//  _ObjCGraftingCompositedClass.h
 //  ObjCGrafting
 //
 //  Created on 29/12/2018.
@@ -11,5 +11,5 @@
 ///
 /// All the composited class shall conform to this protocol.
 ///
-@protocol _ObjCGrafted<NSObject>
+@protocol _ObjCGraftingCompositedClass<NSObject>
 @end

@@ -11,6 +11,7 @@
 #import <objc/runtime.h>
 
 #include <memory>
+#include <vector>
 #include <unordered_map>
 
 #import "ObjCGraftCommon.h"
@@ -32,7 +33,7 @@ namespace objcgrafting {
         _ObjCGraftInfo(__unsafe_unretained Class semantic_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map);
         
         /// Returns `true` when the `_ObjCGraftInfo` itself was mutated due to this registration.
-        bool push(Protocol * __unsafe_unretained *  protocols, __unsafe_unretained Class * source_classes, unsigned int count);
+        bool push(_ObjCGraftRequestVector& requests);
         
         /// Returns `true` when the `_ObjCGraftInfo` itself was mutated due to this unregistration.
         bool pop(Protocol * __unsafe_unretained * protocols, unsigned int count);

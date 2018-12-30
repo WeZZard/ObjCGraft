@@ -13,7 +13,7 @@
 
 void _NSObjectDealloc(NSObject * __unsafe_unretained self, SEL _cmd) {
     if (objcgrafting::_ObjCGraftCenter::shared().objectHasGraftInfo(self)) {
-        NSObjectDealloc * customImpl = (NSObjectDealloc *)objcgrafting::_ObjCGraftCenter::shared().objectGetBackwardInstanceImpl(self, _ObjCCompositedClassBackwardInstanceImplKindDealloc);
+        NSObjectDealloc * customImpl = (NSObjectDealloc *)objcgrafting::_ObjCGraftCenter::shared().objectGetBackwardInstanceImpl(self, objcgrafting::_ObjCCompositedClass::BackwardInstanceImplKind::Dealloc);
         
         if (customImpl != nullptr) {
             (* customImpl)(self, _cmd);
@@ -40,14 +40,14 @@ void _NSObjectSuperDealloc(NSObject * __unsafe_unretained self, SEL _cmd) {
     (* superImpl)(&superclass, _cmd);
 }
 
-Class _NSObjectClass(NSObject * self, SEL _cmd) {
+Class _NSObjectGetClass(NSObject * self, SEL _cmd) {
     objcgrafting::_ObjCGraftCenter::shared().lock();
     
     auto& graft_info = objcgrafting::_ObjCGraftCenter::shared().objectGetGraftInfo(self);
     
     Class semantic_calss = graft_info.semantic_class;
     
-    NSObjectClass * customImpl = (NSObjectClass *)objcgrafting::_ObjCGraftCenter::shared().objectGetBackwardInstanceImpl(self, _ObjCCompositedClassBackwardInstanceImplKindClass);
+    NSObjectGetClass * customImpl = (NSObjectGetClass *)objcgrafting::_ObjCGraftCenter::shared().objectGetBackwardInstanceImpl(self, objcgrafting::_ObjCCompositedClass::BackwardInstanceImplKind::ClassGetter);
     
     if (customImpl) {
 #if DEBUG

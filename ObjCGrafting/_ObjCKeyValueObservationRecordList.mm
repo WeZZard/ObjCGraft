@@ -39,11 +39,6 @@
     NSParameterAssert(keyPath);
     auto recordsToRemove = [[NSMutableSet alloc] init];
     [_records enumerateObjectsUsingBlock:^(_ObjCKeyValueObservationRecord * record, BOOL * stop) {
-        NSLog(@"record: %@", record);
-        NSLog(@"record.observer: %@", record.observer);
-        NSLog(@"record.keyPath: %@", record.keyPath);
-        NSLog(@"observer: %@", observer);
-        NSLog(@"keyPath: %@", keyPath);
         if (record.observer == observer && [record.keyPath isEqualToString:keyPath]) {
             [recordsToRemove addObject: record];
         }

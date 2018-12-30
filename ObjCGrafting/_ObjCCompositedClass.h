@@ -12,18 +12,27 @@
 
 #import "ObjCGraftCommon.h"
 #import "_ObjCGraftCombination.h"
-#import "_ObjCCompositedClassBackwardInstanceImpl.h"
 
 namespace objcgrafting {
+    /// A set of tools to help with the composited class in grafting.
+    ///
     struct _ObjCCompositedClass {
     public:
-        static void addSystemProtocols(__unsafe_unretained Class cls);
-        static void addUserDefinedProtocols(__unsafe_unretained Class cls, _ObjCGraftRecordMap& graft_record_map);
-        static void addSystemMethods(__unsafe_unretained Class cls);
-        static void addUserDefinedMethods(__unsafe_unretained Class cls, _ObjCGraftCombinationList& graftCombinationList);
+        enum class BackwardInstanceImplKind {
+            Dealloc, ClassGetter, KVOClassGetter
+        };
         
-        static void setBackwardInstanceImpl(Class cls, IMP kind, _ObjCCompositedClassBackwardInstanceImplKind instance_impl);
-        static IMP getBackwardInstanceImpl(Class cls, _ObjCCompositedClassBackwardInstanceImplKind kind);
+    public:
+        static Class make(__unsafe_unretained Class semantic_class, const char * raw_class_name, _ObjCGraftRecordMap& graft_record_map);
+    private:
+        static void _addSystemProtocols(__unsafe_unretained Class cls);
+        static void _addUserDefinedProtocols(__unsafe_unretained Class cls, _ObjCGraftRecordMap& graft_record_map);
+        static void _addSystemMethods(__unsafe_unretained Class cls);
+        static void _addUserDefinedMethods(__unsafe_unretained Class cls, _ObjCGraftCombinationList& graftCombinationList);
+        
+    public:
+        static void setBackwardInstanceImpl(Class cls, IMP kind, BackwardInstanceImplKind instance_impl);
+        static IMP getBackwardInstanceImpl(Class cls, BackwardInstanceImplKind kind);
     };
 }
 

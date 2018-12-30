@@ -5,7 +5,7 @@
 //  Created on 29/12/2018.
 //
 
-#include "_ObjCGraftInfo.h"
+#import "_ObjCGraftInfo.h"
 
 namespace objcgrafting {
     _ObjCGraftInfo::_ObjCGraftInfo(__unsafe_unretained Class semantic_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
@@ -14,13 +14,12 @@ namespace objcgrafting {
         this -> graft_record_map = std::make_unique<_ObjCGraftRecordMap>(graft_record_map);
     }
     
-    bool _ObjCGraftInfo::push(Protocol * __unsafe_unretained *  protocols, __unsafe_unretained Class * source_classes, unsigned int count) {
-        
+    bool _ObjCGraftInfo::push(_ObjCGraftRequestVector& requests) {
         bool is_any_thing_modified = false;
         
-        for (unsigned int index = 0; index < count; index ++) {
-            auto protocol = protocols[index];
-            auto source_class = source_classes[index];
+        for (auto& request : requests) {
+            auto protocol = request.first;
+            auto source_class = request.second;
             
             auto position = graft_record_map -> find(protocol);
             

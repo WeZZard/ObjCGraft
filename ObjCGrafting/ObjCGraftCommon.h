@@ -6,17 +6,23 @@
 //
 //
 
-#ifndef ObjCGraft_Internal_h
-#define ObjCGraft_Internal_h
+#ifndef ObjCGraftCommon_h
+#define ObjCGraftCommon_h
 
-#import <Foundation/Foundation.h>
+#import <objc/runtime.h>
 
 #include <map>
 #include <list>
 
 namespace objcgrafting {
+    struct _ObjCProtocolHasher;
+    struct _ObjCIdHasher;
+    
 #pragma mark - Typedefs
+    typedef std::pair<Protocol * __unsafe_unretained, __unsafe_unretained Class> _ObjCGraftRequest;
+    typedef std::vector<_ObjCGraftRequest> _ObjCGraftRequestVector;
     typedef std::map<Protocol * __unsafe_unretained , __unsafe_unretained Class> _ObjCGraftRecordMap;
+    typedef std::list<Protocol * __unsafe_unretained> _ObjCProtocolList;
     
 #pragma mark - Utility Functors
     struct _ObjCProtocolHasher {
@@ -36,4 +42,4 @@ namespace objcgrafting {
     };
 }
 
-#endif /* ObjCGraft_Internal_h */
+#endif /* ObjCGraftCommon_h */

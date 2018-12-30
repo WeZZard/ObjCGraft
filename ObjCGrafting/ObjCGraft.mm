@@ -14,8 +14,9 @@
 #pragma mark - Implementations of C Bindings
 id object_graftImplementationOfProtocol(id object, Protocol * protocol, Class sourceClass) {
     Protocol * __unsafe_unretained unsafe_unretained_protocol = protocol;
+    auto requests = objcgrafting::_ObjCGraftCenter::shared().makeGraftRequests(&unsafe_unretained_protocol, &sourceClass, 1);
     objcgrafting::_ObjCGraftCenter::shared().lock();
-    id retVal = objcgrafting::_ObjCGraftCenter::shared().graftImplementationOfProtocolsFromClassesToObject(object, &unsafe_unretained_protocol, &sourceClass, 1);
+    id retVal = objcgrafting::_ObjCGraftCenter::shared().graftImplementationOfProtocolsFromClassesToObject(object, * requests);
     objcgrafting::_ObjCGraftCenter::shared().unlock();
     return retVal;
 }
@@ -23,8 +24,9 @@ id object_graftImplementationOfProtocol(id object, Protocol * protocol, Class so
 id object_graftImplementationsOfProtocols(id object, Protocol * _Nonnull *  _Nonnull protocols, __unsafe_unretained Class _Nonnull * _Nonnull sourceClasses, unsigned int count) {
     Protocol * __unsafe_unretained unsafe_unretained_first_protocol = * protocols;
     Protocol * __unsafe_unretained * unsafe_unretained_protocols = &unsafe_unretained_first_protocol;
+    auto requests = objcgrafting::_ObjCGraftCenter::shared().makeGraftRequests(unsafe_unretained_protocols, sourceClasses, count);
     objcgrafting::_ObjCGraftCenter::shared().lock();
-    id retVal = objcgrafting::_ObjCGraftCenter::shared().graftImplementationOfProtocolsFromClassesToObject(object, unsafe_unretained_protocols, sourceClasses, count);
+    id retVal = objcgrafting::_ObjCGraftCenter::shared().graftImplementationOfProtocolsFromClassesToObject(object, * requests);
     objcgrafting::_ObjCGraftCenter::shared().unlock();
     return retVal;
 }
@@ -54,8 +56,10 @@ id object_graftImplementationsOfProtocols_nilTerminated(id object, Protocol * fi
     auto protocol_array = &(* protocols)[0];
     auto source_classes_array = &(* source_classes)[0];
     
+    auto requests = objcgrafting::_ObjCGraftCenter::shared().makeGraftRequests(protocol_array, source_classes_array, count);
+    
     objcgrafting::_ObjCGraftCenter::shared().lock();
-    id retVal = objcgrafting::_ObjCGraftCenter::shared().graftImplementationOfProtocolsFromClassesToObject(object, protocol_array, source_classes_array, count);
+    id retVal = objcgrafting::_ObjCGraftCenter::shared().graftImplementationOfProtocolsFromClassesToObject(object, * requests);
     objcgrafting::_ObjCGraftCenter::shared().unlock();
     return retVal;
 }
