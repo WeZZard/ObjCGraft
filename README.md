@@ -1,16 +1,20 @@
-# ObjCGrafting
+# Introduction
 
-ObjCGrafting is an Objective-C/Swift framework eases the pain of doing
-aspect-oriented programming against Objective-C code.
+[![Build Status](https://travis-ci.com/WeZZard/ObjCGrafting.svg?branch=master)](https://travis-ci.com/WeZZard/ObjCGrafting)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-## Features
+ObjCGrafting is a framework eases pain of implementing aspect-oriented
+programming in Objective-C/Swift.
 
-- Manageable aspect-oriented programming strategy.
-- Well co-existance with KVO.
+It is implemented with is-a swizzle and works with KVO, which is also
+implemented with is-a swizzle.
 
-## How to Do Aspect-Oriented Programming with ObjCGrafting
+It introduced a protocol-implementation pair to help you manage your
+aspect-oriented code.
 
-You need three things to do aspect-oriented programming in
+## Example
+
+You need three things to implement aspect-oriented programming in
 Objective-C/Swift with ObjCGrafting.
 
 - An Objective-C based object: the object which contains the "aspect" to
@@ -20,19 +24,26 @@ Objective-C/Swift with ObjCGrafting.
 - A class adopts to the previous Objective-C protocol: the class
   implements the "aspect".
 
-First, you need to define the "aspect" to be "manipulated" with. For
-example, if you want to add some behavior, such as printing "Foo" after
-`viewDidLoad` in any instance of type of `UIViewController` without
+For example, if you want to add some behavior, such as printing "Foo"
+after `viewDidLoad` in any instance of type of `UIViewController` without
 subclassing, you can write following code:
+
+First, you need to define the "aspect" to be "manipulated" with.
+
+MyViewControllerAspect.h
+
+```objc
+@protocol MyViewControllerAspect<NSObject>
+- (void)viewDidLoad;
+@end
+```
+
+Then, you need to implement this "aspect" on a class.
 
 MyViewController.h
 
 ```objc
 #import <UIKit/UIKit.h>
-
-@protocol MyViewControllerAspect
-- (void)viewDidLoad;
-@end
 
 @interface MyViewController: UIViewController<MyViewControllerAspect>
 @end
@@ -51,3 +62,31 @@ MyViewController.m
 }
 @end
 ```
+
+Last, you need to graft the implementation defined by the "aspect" from
+the previously defined class to another.
+
+Objective-C
+
+```objc
+object_graftImplemenationOfProtocolFromClass(viewController, @protocol(MyViewControllerAspect), [MyViewController class]);
+```
+
+Swift
+
+```swift
+ObjCGraftImplementation(of: MyViewControllerAspect.self, from: MyViewController.self, to: viewController)
+```
+
+Now, your `viewController` object can log "Foo" when the `viewDidLoad` was
+called.
+
+## Wiki
+
+- [Concept behind ObjCGrafting](https://github.com/WeZZard/ObjCGrafting/wiki/Concept-behind-ObjCGrafting)
+- [Understanding the Design](https://github.com/WeZZard/ObjCGrafting/wiki/Understanding-the-Design)
+
+## Known Issues
+
+- The process goes into an infinite loop when removing KVO observer
+  unbalancedly.
