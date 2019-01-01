@@ -115,3 +115,7 @@ ObjCRemoveAllGraftedImplementations(from: viewController)
 - The process goes into an infinite loop when removing KVO observer
   unbalancedly from an object and that object is grafted with some
   implementations.
+
+## License
+
+MIT
