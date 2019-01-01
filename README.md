@@ -38,7 +38,9 @@ MyViewControllerAspect.h
 @end
 ```
 
-Then, you need to implement this "aspect" on a class.
+Then, you need to implement this "aspect" on a class. This is recommended
+to be done in Objective-C, because you don't have to take complex
+compile-time resolving into consideration when coding with Objective-C.
 
 MyViewController.h
 
