@@ -71,12 +71,14 @@ the previously defined class to another.
 Objective-C
 
 ```objc
+UIViewController * viewController = [UIViewController alloc] init];
 object_graftImplemenationOfProtocolFromClass(viewController, @protocol(MyViewControllerAspect), [MyViewController class]);
 ```
 
 Swift
 
 ```swift
+let viewController = UIViewController()
 ObjCGraftImplementation(of: MyViewControllerAspect.self, from: MyViewController.self, to: viewController)
 ```
 
