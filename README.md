@@ -106,10 +106,12 @@ ObjCRemoveAllGraftedImplementations(from: viewController)
 
 ## Wiki
 
+- [Wiki Home](https://github.com/WeZZard/ObjCGrafting/wiki/)
 - [Concept behind ObjCGrafting](https://github.com/WeZZard/ObjCGrafting/wiki/Concept-behind-ObjCGrafting)
 - [Understanding the Design](https://github.com/WeZZard/ObjCGrafting/wiki/Understanding-the-Design)
 
 ## Known Issues
 
 - The process goes into an infinite loop when removing KVO observer
-  unbalancedly.
+  unbalancedly from an object and that object is grafted with some
+  implementations.
