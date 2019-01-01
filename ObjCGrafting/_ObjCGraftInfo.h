@@ -9,12 +9,13 @@
 #define _ObjCGraftInfo_h
 
 #import <objc/runtime.h>
+#import <Foundation/Foundation.h>
 
 #include <memory>
 #include <vector>
 #include <unordered_map>
 
-#import "ObjCGraftCommon.h"
+#import "_ObjCGraftInternal.h"
 
 namespace objcgrafting {
     struct _ObjCGraftInfo {
@@ -37,9 +38,9 @@ namespace objcgrafting {
         
         /// Returns `true` when the `_ObjCGraftInfo` itself was mutated due to this unregistration.
         bool pop(Protocol * __unsafe_unretained * protocols, unsigned int count);
+        
+        NSString * description();
     };
-    
-    typedef std::unordered_map<id __unsafe_unretained , std::unique_ptr<_ObjCGraftInfo>, _ObjCIdHasher> _ObjCGraftInfoMap;
 }
 
 

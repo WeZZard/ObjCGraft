@@ -22,6 +22,13 @@ NSInteger _ObjCCompositedClassBackwardInstanceImplKindGetIndex(objcgrafting::_Ob
             break;
         case objcgrafting::_ObjCCompositedClass::BackwardInstanceImplKind::KVOClassGetter:
             return 2;
+            break;
+        case objcgrafting::_ObjCCompositedClass::BackwardInstanceImplKind::RespondsToSelector:
+            return 3;
+            break;
+        case objcgrafting::_ObjCCompositedClass::BackwardInstanceImplKind::ConformsToProtocol:
+            return 4;
+            break;
         default:
             [NSException raise:NSInvalidArgumentException format:@"Invalid backward instance impl kind."];
             break;

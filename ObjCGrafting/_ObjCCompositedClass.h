@@ -10,7 +10,7 @@
 
 #import <objc/runtime.h>
 
-#import "ObjCGraftCommon.h"
+#import "_ObjCGraftInternal.h"
 #import "_ObjCGraftCombination.h"
 
 namespace objcgrafting {
@@ -19,7 +19,7 @@ namespace objcgrafting {
     struct _ObjCCompositedClass {
     public:
         enum class BackwardInstanceImplKind {
-            Dealloc, ClassGetter, KVOClassGetter
+            Dealloc, ClassGetter, KVOClassGetter, RespondsToSelector, ConformsToProtocol
         };
         
     public:

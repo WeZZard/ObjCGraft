@@ -1,13 +1,13 @@
 //
-//  ObjCGraftCommon.h
+//  _ObjCGraftInternal.h
 //  ObjCGrafting
 //
 //  Created by WeZZard on 27/03/2017.
 //
 //
 
-#ifndef ObjCGraftCommon_h
-#define ObjCGraftCommon_h
+#ifndef _ObjCGraftInternal_h
+#define _ObjCGraftInternal_h
 
 #import <objc/runtime.h>
 
@@ -42,4 +42,4 @@ namespace objcgrafting {
     };
 }
 
-#endif /* ObjCGraftCommon_h */
+#endif /* _ObjCGraftInternal_h */

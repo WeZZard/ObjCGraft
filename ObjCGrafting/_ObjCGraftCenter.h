@@ -13,13 +13,16 @@
 
 #include <memory>
 
-#import "ObjCGraftCommon.h"
+#import "_ObjCGraftInternal.h"
 #import "_ObjCGraftCombination.h"
 #import "_ObjCGraftInfo.h"
 #import "_ObjCCompositedClass.h"
 #import "_ObjCKeyValueObservationRecordList.h"
 
 namespace objcgrafting {
+    typedef std::unordered_map<id __unsafe_unretained , std::unique_ptr<_ObjCGraftInfo>, _ObjCIdHasher> _ObjCGraftInfoMap;
+    typedef std::unordered_map<id __unsafe_unretained , _ObjCKeyValueObservationRecordList *, _ObjCIdHasher> _ObjCKeyValueObservationRecordsMap;
+    
     class _ObjCGraftCenter {
 #pragma mark Accessing Shared Instance
     public:
@@ -28,6 +31,7 @@ namespace objcgrafting {
 #pragma mark Managing Object's Implementation Grafting
     public:
         std::unique_ptr<_ObjCGraftRequestVector> makeGraftRequests(Protocol * __unsafe_unretained * protocols, Class * source_classes, unsigned int count);
+        std::unique_ptr<_ObjCGraftRequestVector> makeGraftRequests(Protocol * __unsafe_unretained * protocols, unsigned int count, Class source_class);
         id graftImplementationOfProtocolsFromClassesToObject(id object, _ObjCGraftRequestVector& requests);
         id removeGraftedImplementationsOfProtocolsFromObject(id object, Protocol * __unsafe_unretained * protocols, unsigned int count);
         id removeGraftedImplementationsFromObject(id object);
@@ -36,8 +40,8 @@ namespace objcgrafting {
         void _setObjectClassHierarchy(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map);
         void _setObjectClassHierarchyWhenTopmostClassIsGraftable(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map);
         void _setObjectClassHierarchyWhenTopmostClassIsNotGraftable(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map);
-        void _setObjectClassHierarchyWithConsiderationOfKeyValueObservation(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map);
-        void _setObjectClassHierarchyWithException(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map);
+        void _setObjectClassHierarchyWithKeyValueObservation(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map);
+        void _setObjectClassHierarchyWithUnkownIsaSwizzleTechnique(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map);
         void _setObjectGraftInfo(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map);
         
 #pragma mark Accessing Object's Members
@@ -90,7 +94,9 @@ namespace objcgrafting {
         pthread_mutex_t lock_;
         pthread_t lock_owner_;
         
+        /// Bookkeeps graft info for object.
         std::unique_ptr<_ObjCGraftInfoMap> graft_info_map_;
+        /// Bookkeeps key-value observation records for object.
         std::unique_ptr<_ObjCKeyValueObservationRecordsMap> key_value_observation_records_map_;
         
 #pragma mark Managing Life-Cycle

@@ -114,7 +114,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#pragma mark Grafting Implementation
+#pragma mark - Grafting Implementation
 
 /**
  Grafts the implementation of a protocol from a class to an object.
@@ -129,11 +129,13 @@ NS_ASSUME_NONNULL_BEGIN
  
  @return The grafted object. The same to the input `object`.
  */
-FOUNDATION_EXTERN id object_graftImplementationOfProtocol(id object, Protocol * protocol, Class sourceClass) NS_REFINED_FOR_SWIFT;
+FOUNDATION_EXTERN id object_graftImplementationOfProtocolFromClass(id object, Protocol * protocol, Class sourceClass) NS_REFINED_FOR_SWIFT;
 
 
 /**
- Grafts the implementation of the protocols from the classes to an object.
+ Grafts the implementation of the protocols from classes to an object.
+ 
+ @note The number of protocols and the number of classes shall be equal.
  
  @param object The object to graft the implementation to.
  
@@ -143,13 +145,15 @@ FOUNDATION_EXTERN id object_graftImplementationOfProtocol(id object, Protocol * 
  @param sourceClasses An array of classes which contain the
    implementations to be grafted from.
  
+ @param count the count of the `protocols` and `sourceClasses`.
+ 
  @return The grafted object. The same to the input `object`.
  */
-FOUNDATION_EXTERN id object_graftImplementationsOfProtocols(id object, Protocol * _Nonnull *  _Nonnull protocols, __unsafe_unretained Class _Nonnull * _Nonnull sourceClasses, unsigned int count) NS_REFINED_FOR_SWIFT;
+FOUNDATION_EXTERN id object_graftImplementationsOfProtocolsFromClasses(id object, Protocol __unsafe_unretained * _Nonnull *  _Nonnull protocols, __unsafe_unretained Class _Nonnull * _Nonnull sourceClasses, unsigned int count) NS_REFINED_FOR_SWIFT;
 
 
 /**
- Grafts the implementation of the protocols from the classes to an object.
+ Grafts the implementation of the protocols from classes to an object.
  
  @note The protocols and classes are offered in a nil terminated
    protocol-class paired argument list.
@@ -164,9 +168,48 @@ FOUNDATION_EXTERN id object_graftImplementationsOfProtocols(id object, Protocol 
  
  @return The grafted object. The same to the input `object`.
  */
-FOUNDATION_EXTERN id object_graftImplementationsOfProtocols_nilTerminated(id object, Protocol * firstProtocol, Class firstSourceClass, ...) NS_REQUIRES_NIL_TERMINATION NS_REFINED_FOR_SWIFT;
+FOUNDATION_EXTERN id object_graftImplementationsOfProtocolsFromClasses_nilTerminated(id object, Protocol * firstProtocol, Class firstSourceClass, ...) NS_REQUIRES_NIL_TERMINATION NS_REFINED_FOR_SWIFT;
 
-#pragma mark Removing Grafted Implementation
+/**
+ Grafts the implementation of the protocols from a class to an object.
+ 
+ @note The number of protocols and the number of classes shall be equal.
+ 
+ @param object The object to graft the implementation to.
+ 
+ @param sourceClass The class contains the implementations to be grafted
+   from.
+ 
+ @param protocols The first protocol defines the implementations to be
+   grafted with.
+ 
+ @param count the count of the `protocols`.
+ 
+ @return The grafted object. The same to the input `object`.
+ */
+FOUNDATION_EXTERN id object_graftImplementationsOfProtocolsFromClass(id object, Protocol __unsafe_unretained * _Nonnull *  _Nonnull protocols, unsigned int count, __unsafe_unretained Class _Nonnull sourceClass) NS_REFINED_FOR_SWIFT;
+
+
+/**
+ Grafts the implementation of the protocols from a class to an object.
+ 
+ @note The protocols and classes are offered in a nil terminated
+   protocol-class paired argument list.
+ 
+ @param object The object to graft the implementation to.
+ 
+ @param sourceClass The class contains the implementations to be grafted
+   from.
+ 
+ @param firstProtocol The first protocol defines the implementations to be
+   removed with.
+ 
+ @return The grafted object. The same to the input `object`.
+ */
+FOUNDATION_EXTERN id object_graftImplementationsOfProtocolsFromClass_nilTerminated(id object, __unsafe_unretained Class _Nonnull sourceClass, Protocol * firstProtocol, ...) NS_REQUIRES_NIL_TERMINATION NS_REFINED_FOR_SWIFT;
+
+#pragma mark - Removing Grafted Implementation
+
 
 /**
  Removes the grafted implementation of a protocol from an object.
@@ -192,10 +235,12 @@ FOUNDATION_EXTERN id object_removeGraftedImplementationOfProtocol(id object, Pro
  @param protocols The protocols which define the implementations to be
    removed with.
  
+ @param count the count of the `protocols`.
+ 
  @return The object with its grafted implementations removed. The same to
    the input `object`.
  */
-FOUNDATION_EXTERN id object_removeGraftedImplementationsOfProtocols(id object, Protocol * _Nonnull *  _Nonnull protocols, unsigned int count) NS_REFINED_FOR_SWIFT;
+FOUNDATION_EXTERN id object_removeGraftedImplementationsOfProtocols(id object, Protocol __unsafe_unretained * _Nonnull *  _Nonnull protocols, unsigned int count) NS_REFINED_FOR_SWIFT;
 
 
 /**
@@ -226,5 +271,18 @@ FOUNDATION_EXTERN id object_removeGraftedImplementationsOfProtocols_nilTerminate
    the input `object`.
  */
 FOUNDATION_EXTERN id object_removeAllGraftedImplementations(id object) NS_REFINED_FOR_SWIFT;
+
+
+#pragma mark - Accessing Grafted Info
+
+
+/**
+ Returns the description about the object's graft info.
+ 
+ @param object The object to be inspected.
+ 
+ @return The description about the object's graft info.
+ */
+FOUNDATION_EXPORT NSString * object_graftInfoDescription(id object) NS_REFINED_FOR_SWIFT;
 
 NS_ASSUME_NONNULL_END

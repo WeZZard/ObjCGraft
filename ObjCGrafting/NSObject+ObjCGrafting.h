@@ -14,8 +14,13 @@ typedef Class NSObjectGetClass (NSObject *, SEL);
 
 typedef void NSObjectDealloc (NSObject * __unsafe_unretained, SEL);
 
+typedef BOOL NSObjectRespondsToSelector (NSObject * __unsafe_unretained, SEL, SEL);
+
+typedef BOOL NSObjectConformsToProtocol (NSObject * __unsafe_unretained, SEL, Protocol *);
+
 FOUNDATION_EXTERN NSObjectGetClass _NSObjectGetClass;
 FOUNDATION_EXTERN NSObjectDealloc _NSObjectDealloc;
-FOUNDATION_EXTERN NSObjectDealloc _NSObjectSuperDealloc;
+FOUNDATION_EXTERN NSObjectRespondsToSelector _NSObjectRespondsToSelector;
+FOUNDATION_EXTERN NSObjectConformsToProtocol _NSObjectConformsToProtocol;
 
 #endif /* NSObject_ObjCGrafting_h */

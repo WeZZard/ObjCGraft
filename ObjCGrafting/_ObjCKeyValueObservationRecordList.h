@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ObjCGraftCommon.h"
+#import "_ObjCGraftInternal.h"
 #import "_ObjCKeyValueObservationRecord.h"
 
 #include <unordered_map>
@@ -22,7 +22,3 @@
 - (void)enumerateRecordWithBlock:(void (^)(id observer, NSString * keyPath, NSKeyValueObservingOptions options, void * context))block;
 - (BOOL)isEmpty;
 @end
-
-namespace objcgrafting {
-    typedef std::unordered_map<id __unsafe_unretained , _ObjCKeyValueObservationRecordList *, _ObjCIdHasher> _ObjCKeyValueObservationRecordsMap;
-}

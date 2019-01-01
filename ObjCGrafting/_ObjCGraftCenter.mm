@@ -33,7 +33,21 @@ namespace objcgrafting {
             auto protocol = protocols[index];
             auto source_class = source_classes[index];
             
-            if (class_conformsToProtocol(source_class, protocol)) {
+            if ([source_class conformsToProtocol: protocol]) {
+                vector -> push_back({protocol, source_class});
+            }
+        }
+        
+        return vector;
+    }
+    
+    std::unique_ptr<_ObjCGraftRequestVector> _ObjCGraftCenter::makeGraftRequests(Protocol * __unsafe_unretained * protocols, unsigned int count, Class source_class) {
+        auto vector = std::make_unique<_ObjCGraftRequestVector>();
+        
+        for (unsigned int index = 0; index < count; index ++) {
+            auto protocol = protocols[index];
+            
+            if ([source_class conformsToProtocol: protocol]) {
                 vector -> push_back({protocol, source_class});
             }
         }
@@ -131,20 +145,18 @@ namespace objcgrafting {
         
         auto topmost_class_name = [NSString stringWithUTF8String:topmost_class_name_raw];
         
-        auto kvo_notifying_class_prefix = [NSString stringWithFormat:@"NSKVONotifying_"];
-        
-        if ([topmost_class_name hasPrefix:kvo_notifying_class_prefix]) {
-            _setObjectClassHierarchyWithConsiderationOfKeyValueObservation(object, semantic_class, topmost_class, composited_class, graft_record_map);
+        if ([topmost_class_name hasPrefix: @"NSKVONotifying_"]) {
+            _setObjectClassHierarchyWithKeyValueObservation(object, semantic_class, topmost_class, composited_class, graft_record_map);
         } else {
-            _setObjectClassHierarchyWithException(object, semantic_class, topmost_class, composited_class, graft_record_map);
+            _setObjectClassHierarchyWithUnkownIsaSwizzleTechnique(object, semantic_class, topmost_class, composited_class, graft_record_map);
         }
     }
     
-    void _ObjCGraftCenter::_setObjectClassHierarchyWithConsiderationOfKeyValueObservation(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
+    void _ObjCGraftCenter::_setObjectClassHierarchyWithKeyValueObservation(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
         
         auto kvo_notifying_class = topmost_class;
         
-        // Return the implementation of -class method if needed
+        // Return the implementation of `-class` method if needed
         if (objectHasGraftInfo(object)) {
             auto old_composited_class = objectGetGraftInfo(object).composited_class;
             auto kvo_notifying_class_class_impl = _ObjCCompositedClass::getBackwardInstanceImpl(old_composited_class, _ObjCCompositedClass::BackwardInstanceImplKind::KVOClassGetter);
@@ -174,7 +186,7 @@ namespace objcgrafting {
             object_setClass(object, semantic_class);
         }
         
-        // Add all observers
+        // Re-add all observers
         [key_value_observation_records enumerateRecordWithBlock:^(id observer, NSString *keyPath, NSKeyValueObservingOptions options, void *context) {
          auto filteredOptions = options & ~NSKeyValueObservingOptionInitial;
          (* _kNSObjectAddObserverForKeyPathOptionsContext)(object, @selector(addObserver:forKeyPath:options:context:), observer, keyPath, filteredOptions, context);
@@ -182,7 +194,7 @@ namespace objcgrafting {
         
         setObjectKVOActionDelegationDisabled(false);
         
-        // Replace the implementation of -class method if needed
+        // Replace the implementation of `-class` method if needed
         auto refreshed_topmost_class = object_getClass(object);
         
         if (composited_class != nullptr) {
@@ -194,12 +206,11 @@ namespace objcgrafting {
         }
     }
     
-    void _ObjCGraftCenter::_setObjectClassHierarchyWithException(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
-        [NSException raise:NSInternalInconsistencyException format:@"Unkown is-a swizzle technique was found on object %@. Semantic Class = %@; Topmost Class = %@, Composited Class = %@.", [object description], NSStringFromClass(semantic_class), NSStringFromClass(topmost_class), NSStringFromClass(composited_class)];
+    void _ObjCGraftCenter::_setObjectClassHierarchyWithUnkownIsaSwizzleTechnique(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class topmost_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
+        [NSException raise:NSInternalInconsistencyException format: @"Unkown is-a swizzle technique was detected on object %@. Semantic Class = %@; Topmost Class = %@, Composited Class = %@.", [object description], NSStringFromClass(semantic_class), NSStringFromClass(topmost_class), NSStringFromClass(composited_class)];
     }
     
     void _ObjCGraftCenter::_setObjectGraftInfo(id object, __unsafe_unretained Class semantic_class, __unsafe_unretained Class composited_class, _ObjCGraftRecordMap& graft_record_map) {
-        
         if (objectHasGraftInfo(object)) {
             if (graft_record_map.empty()) {
                 assert(object_getClass(object) == semantic_class || class_getSuperclass(object_getClass(object)) == semantic_class);
@@ -344,9 +355,9 @@ namespace objcgrafting {
         
         auto semantic_class = [object class];
         
-        auto grafted_components_id = _ObjCGraftingResolver::shared().graftedProtocolIdentifier(graft_record_map);
+        auto graft_record_id = _ObjCGraftingResolver::shared().makeGraftRecordIdentifier(graft_record_map);
         
-        auto class_name = [NSString stringWithFormat:@"_ObjCGrafted_%@_%@", NSStringFromClass(semantic_class), grafted_components_id];
+        auto class_name = [NSString stringWithFormat:@"_ObjCGrafted_%@_%@", NSStringFromClass(semantic_class), graft_record_id];
         
         auto raw_class_name = class_name.UTF8String;
         

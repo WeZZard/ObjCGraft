@@ -33,13 +33,13 @@ void _NSArrayAddObserverToObjectsAtIndicesForKeyPathOptionsContext(NSArray * sel
     objcgrafting::_ObjCGraftCenter::shared().lock();
     if (!objcgrafting::_ObjCGraftCenter::shared().isObjectKVOActionDelegationDisabled()) {
         [self enumerateObjectsAtIndexes:indices options:NULL usingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
-            objcgrafting::_ObjCGraftCenter::shared().objectWillAddKeyValueObserver(self, observer, keyPath, options, context);
+            objcgrafting::_ObjCGraftCenter::shared().objectWillAddKeyValueObserver(obj, observer, keyPath, options, context);
         }];
     }
     (* _kNSArrayAddObserverToObjectsAtIndicesForKeyPathOptionsContext)(self, _cmd, observer, indices, keyPath, options, context);
     if (!objcgrafting::_ObjCGraftCenter::shared().isObjectKVOActionDelegationDisabled()) {
         [self enumerateObjectsAtIndexes:indices options:NULL usingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
-            objcgrafting::_ObjCGraftCenter::shared().objectDidAddKeyValueObserver(self, observer, keyPath, options, context);
+            objcgrafting::_ObjCGraftCenter::shared().objectDidAddKeyValueObserver(obj, observer, keyPath, options, context);
         }];
     }
     objcgrafting::_ObjCGraftCenter::shared().unlock();
@@ -49,13 +49,13 @@ void _NSArrayRemoveObserverFromObjectsAtIndicesForKeyPath(NSArray * self, SEL _c
     objcgrafting::_ObjCGraftCenter::shared().lock();
     if (!objcgrafting::_ObjCGraftCenter::shared().isObjectKVOActionDelegationDisabled()) {
         [self enumerateObjectsAtIndexes:indices options:NULL usingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
-            objcgrafting::_ObjCGraftCenter::shared().objectWillRemoveKeyValueObserver(self, observer, keyPath);
+            objcgrafting::_ObjCGraftCenter::shared().objectWillRemoveKeyValueObserver(obj, observer, keyPath);
         }];
     }
     (* _kNSArrayRemoveObserverFromObjectsAtIndicesForKeyPath)(self, _cmd, observer, indices, keyPath);
     if (!objcgrafting::_ObjCGraftCenter::shared().isObjectKVOActionDelegationDisabled()) {
         [self enumerateObjectsAtIndexes:indices options:NULL usingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
-            objcgrafting::_ObjCGraftCenter::shared().objectDidRemoveKeyValueObserver(self, observer, keyPath);
+            objcgrafting::_ObjCGraftCenter::shared().objectDidRemoveKeyValueObserver(obj, observer, keyPath);
         }];
     }
     objcgrafting::_ObjCGraftCenter::shared().unlock();
@@ -65,13 +65,13 @@ void _NSArrayRemoveObserverFromObjectsAtIndicesForKeyPathContext(NSArray * self,
     objcgrafting::_ObjCGraftCenter::shared().lock();
     if (!objcgrafting::_ObjCGraftCenter::shared().isObjectKVOActionDelegationDisabled()) {
         [self enumerateObjectsAtIndexes:indices options:NULL usingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
-            objcgrafting::_ObjCGraftCenter::shared().objectWillRemoveKeyValueObserver(self, observer, keyPath, context);
+            objcgrafting::_ObjCGraftCenter::shared().objectWillRemoveKeyValueObserver(obj, observer, keyPath, context);
         }];
     }
     (* _kNSArrayRemoveObserverFromObjectsAtIndicesForKeyPathContext)(self, _cmd, observer, indices, keyPath, context);
     if (!objcgrafting::_ObjCGraftCenter::shared().isObjectKVOActionDelegationDisabled()) {
         [self enumerateObjectsAtIndexes:indices options:NULL usingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
-            objcgrafting::_ObjCGraftCenter::shared().objectDidRemoveKeyValueObserver(self, observer, keyPath, context);
+            objcgrafting::_ObjCGraftCenter::shared().objectDidRemoveKeyValueObserver(obj, observer, keyPath, context);
         }];
     }
     objcgrafting::_ObjCGraftCenter::shared().unlock();

@@ -56,4 +56,21 @@ namespace objcgrafting {
         
         return is_any_thing_erased;
     }
+    
+    NSString * _ObjCGraftInfo::description() {
+        NSMutableString * mutableDescription = [[NSMutableString alloc] init];
+        
+        [mutableDescription appendFormat: @"Semantic Class: %@\n", NSStringFromClass(this -> semantic_class)];
+        
+        [mutableDescription appendFormat: @"Composited Class: %@\n", NSStringFromClass(this -> composited_class)];
+        
+        for (auto& pair: * graft_record_map) {
+            auto& key = pair.first;
+            auto& value = pair.second;
+            
+            [mutableDescription appendFormat: @"\t@protocol(%@) => %@\n", NSStringFromProtocol(key), NSStringFromClass(value)];
+        }
+        
+        return [mutableDescription copy];
+    }
 }

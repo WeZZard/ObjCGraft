@@ -10,7 +10,7 @@
 
 #import "_ObjCCompositedClass.h"
 
-#define _OBJC_COMPOSITED_CLASS_BACKWARD_IMPL_COUNT 3
+#define _OBJC_COMPOSITED_CLASS_BACKWARD_IMPL_COUNT 5
 
 FOUNDATION_EXTERN void _ObjCCompositedClassInitialize(__unsafe_unretained Class cls);
 
