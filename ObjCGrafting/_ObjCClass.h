@@ -5,8 +5,8 @@
 //  Created on 29/12/2018.
 //
 
-#ifndef Cls_h
-#define Cls_h
+#ifndef _ObjCClass_h
+#define _ObjCClass_h
 
 #import <objc/runtime.h>
 
@@ -21,4 +21,4 @@ namespace objcgrafting {
     };
 }
 
-#endif /* Cls_hpp */
+#endif /* _ObjCClass_h */
