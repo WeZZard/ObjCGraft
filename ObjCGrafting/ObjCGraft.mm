@@ -15,8 +15,11 @@
 #import "_ObjCGraftInfo.h"
 
 
-static void _ObjCPrecondition(BOOL(^block)(), NSString * format, id arg...) NS_REQUIRES_NIL_TERMINATION;
-
+#define _NSCPrecondition(condition, desc, ...) \
+if (__builtin_expect(!(condition), 0)) { \
+    [NSException raise: NSInternalInconsistencyException \
+                format: (desc), ##__VA_ARGS__]; \
+}
 
 #pragma mark - Grafting Implementation
 
@@ -41,8 +44,8 @@ id object_graftImplementationsOfProtocolsFromClasses(id object, Protocol __unsaf
 
 
 id object_graftImplementationsOfProtocolsFromClasses_nilTerminated(id object, Protocol * firstProtocol, Class firstSourceClass, ...) {
-    NSCParameterAssert(objc_getMetaClass(class_getName(object_getClass(firstProtocol))) == objc_getMetaClass(class_getName(object_getClass(@protocol(NSObject)))));
-    NSCParameterAssert(objc_getMetaClass(class_getName(object_getClass(firstSourceClass))) != objc_getMetaClass(class_getName(object_getClass(@protocol(NSObject)))));
+    _NSCPrecondition(objc_getMetaClass(class_getName(object_getClass(firstProtocol))) == objc_getMetaClass(class_getName(object_getClass(@protocol(NSObject)))), @"firstProtocol is not a protocol.");
+    _NSCPrecondition(objc_getMetaClass(class_getName(object_getClass(firstSourceClass))) != objc_getMetaClass(class_getName(object_getClass(@protocol(NSObject)))), @"firstSourceClass is not a class.");
     
     Protocol * each_protocol;
     Class each_source_class;
@@ -58,8 +61,8 @@ id object_graftImplementationsOfProtocolsFromClasses_nilTerminated(id object, Pr
     
     va_start(arg_list, firstSourceClass);
     while ((each_protocol = va_arg(arg_list, Protocol *)) && (each_source_class = va_arg(arg_list, Class))) {
-        NSCParameterAssert(objc_getMetaClass(class_getName(object_getClass(each_protocol))) == objc_getMetaClass(class_getName(object_getClass(@protocol(NSObject)))));
-        NSCParameterAssert(objc_getMetaClass(class_getName(object_getClass(each_source_class))) != objc_getMetaClass(class_getName(object_getClass(@protocol(NSObject)))));
+        _NSCPrecondition(objc_getMetaClass(class_getName(object_getClass(each_protocol))) == objc_getMetaClass(class_getName(object_getClass(@protocol(NSObject)))), @"%@ is not a protocol.", each_protocol);
+        _NSCPrecondition(objc_getMetaClass(class_getName(object_getClass(each_source_class))) != objc_getMetaClass(class_getName(object_getClass(@protocol(NSObject)))), @"%@ is not a class.", each_source_class);
         
         protocols -> push_back(each_protocol);
         source_classes -> push_back(each_source_class);
@@ -189,6 +192,3 @@ NSString * object_graftInfoDescription(id object) {
     return description;
 }
 
-static void _ObjCPrecondition(BOOL(^block)(void), NSString * format, id arg...) {
-    
-}
