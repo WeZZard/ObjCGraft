@@ -18,7 +18,7 @@ You need three things to implement aspect-oriented programming in
 Objective-C/Swift with ObjCGrafting.
 
 - An Objective-C based protocol: the protocol defines the "aspect".
-- An Objective-C based object: the object implements the "aspect".
+- An Objective-C based class: the class implements the "aspect".
 - An object to "insert" the aspect's implementation.
 
 For example, if you want to add some behavior, such as printing "Foo"
