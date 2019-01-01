@@ -25,7 +25,7 @@ import ObjectiveC
 ///
 public func ObjCGraftImplementation<P>(
     of protocol: P.Type,
-    on class: AnyClass,
+    from class: AnyClass,
     to object: AnyObject
     ) -> P
 {
