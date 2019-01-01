@@ -12,7 +12,7 @@ implemented with is-a swizzle.
 It introduced a protocol-implementation pair to help you manage your
 aspect-oriented code.
 
-## Example
+## Grafting Implementations
 
 You need three things to implement aspect-oriented programming in
 Objective-C/Swift with ObjCGrafting.
@@ -84,6 +84,28 @@ ObjCGraftImplementation(of: MyViewControllerAspect.self, from: MyViewController.
 
 Now, your `viewController` object can log "Foo" when the `viewDidLoad` was
 called.
+
+## Removing Grafted Implementations
+
+Objective-C
+
+```objc
+object_removeGraftedImplemenationOfProtocol(viewController, @protocol(MyViewControllerAspect), nil);
+
+// or
+
+object_removeAllGraftedImplemenations(viewController);
+```
+
+Swift
+
+```swift
+ObjCRemoveGraftedImplementation(of: MyViewControllerAspect.self, from: viewController)
+
+// or
+
+ObjCRemoveAllGraftedImplementations(from: viewController)
+```
 
 ## Wiki
 
