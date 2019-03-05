@@ -1,29 +1,36 @@
-# Introduction
-
-[![Build Status](https://travis-ci.com/WeZZard/ObjCGrafting.svg?branch=master)](https://travis-ci.com/WeZZard/ObjCGrafting)
+[![Build Status](https://travis-ci.com/WeZZard/ObjCGraft.svg?branch=master)](https://travis-ci.com/WeZZard/ObjCGraft)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-ObjCGrafting is a framework eases pain of implementing aspect-oriented
-programming in Objective-C/Swift.
+## Introduction
 
-It is implemented with is-a swizzle and works with KVO, which is also
-implemented with is-a swizzle.
+An aspect-oriented programming framework in Objective-C/Swift. Implemented
+with is-a swizzling and is KVO compliant.
 
-It introduced a protocol-implementation pair to help you manage your
-aspect-oriented code.
+You can use this framework to inject your custom implementation to any
+method of any Objective-C object without affecting other instances of the
+same type.
 
-## Grafting Implementations
+[中文](./使用說明.md)
 
-You need three things to implement aspect-oriented programming in
-Objective-C/Swift with ObjCGrafting.
+To know the story about how I compose this framework, check
+[A Story of Implementing Aspect-Oriented Programming in Objective-C and Swift](https://wezzard.com/post/2019/03/a-story-of-implementing-aspect-oriented-programming-in-objective-c-and-swift-8b92).
 
-- An Objective-C based protocol: the protocol defines the "aspect".
-- An Objective-C based class: the class implements the "aspect".
-- An object to "insert" the aspect's implementation.
+## Usage
+
+### Grafting Implementations
+
+You need three things to inject(graft) your custom implementation to a
+method of an object.
+
+- An Objective-C based protocol which defines the "aspect".
+- An Objective-C based class which offers custom implementations of the
+  aspect.
+- An Objective-C object to inject(graft) with the custom implementations
+  of the aspect.
 
 For example, if you want to add some behavior, such as printing "Foo"
-after `viewDidLoad` in any instance of type of `UIViewController` without
-subclassing, you can write following code:
+to `viewDidLoad` in an instance of type of `UIViewController` without
+affecting other instances of the same type, you can do as below:
 
 First, you need to define the "aspect" to be "manipulated" with.
 
@@ -36,8 +43,9 @@ MyViewControllerAspect.h
 ```
 
 Then, you need to implement this "aspect" on a class. This is recommended
-to be done in Objective-C, because you don't have to take complex
-compile-time resolving into consideration when coding with Objective-C.
+to be done in Objective-C, because you don't have to take those complex
+compile-time resolving in Swift into consideration when coding with
+Objective-C.
 
 MyViewController.h
 
@@ -63,7 +71,7 @@ MyViewController.m
 ```
 
 Last, you need to graft the implementation defined by the "aspect" from
-the previously defined class to another.
+the previously defined class to the object.
 
 Objective-C
 
@@ -82,7 +90,7 @@ ObjCGraftImplementation(of: MyViewControllerAspect.self, from: MyViewController.
 Now, your `viewController` object can log "Foo" when the `viewDidLoad` was
 called.
 
-## Removing Grafted Implementations
+### Removing Grafted Implementations
 
 Objective-C
 
@@ -103,12 +111,6 @@ ObjCRemoveGraftedImplementation(of: MyViewControllerAspect.self, from: viewContr
 
 ObjCRemoveAllGraftedImplementations(from: viewController)
 ```
-
-## Wiki
-
-- [Wiki Home](https://github.com/WeZZard/ObjCGrafting/wiki/)
-- [Concept behind ObjCGrafting](https://github.com/WeZZard/ObjCGrafting/wiki/Concept-behind-ObjCGrafting)
-- [Understanding the Design](https://github.com/WeZZard/ObjCGrafting/wiki/Understanding-the-Design)
 
 ## Known Issues
 

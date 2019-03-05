@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9CD2D9AF2177589000FFD1A9"
-               BuildableName = "ObjCGrafting.framework"
+               BuildableName = "ObjCGraft.framework"
                BlueprintName = "ObjCGraft-tvOS"
                ReferencedContainer = "container:ObjCGraft.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9CD2D9AF2177589000FFD1A9"
-            BuildableName = "ObjCGrafting.framework"
+            BuildableName = "ObjCGraft.framework"
             BlueprintName = "ObjCGraft-tvOS"
             ReferencedContainer = "container:ObjCGraft.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9CD2D9AF2177589000FFD1A9"
-            BuildableName = "ObjCGrafting.framework"
+            BuildableName = "ObjCGraft.framework"
             BlueprintName = "ObjCGraft-tvOS"
             ReferencedContainer = "container:ObjCGraft.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9CD2D9AF2177589000FFD1A9"
-            BuildableName = "ObjCGrafting.framework"
+            BuildableName = "ObjCGraft.framework"
             BlueprintName = "ObjCGraft-tvOS"
             ReferencedContainer = "container:ObjCGraft.xcodeproj">
          </BuildableReference>
